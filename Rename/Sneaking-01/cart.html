@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <div class="cart-icon" onclick="openCart()">
+            <!-- Shopping cart icon -->
+            <img src="cart-icon.png" alt="Shopping Cart">
+            <!-- Indicator for added protection plan -->
+            <div class="plan-indicator hidden"></div>
+        </div>
+        <!-- Shopping cart interface -->
+        <div id="cart-interface" class="cart-interface hidden">
+            <div class="cart-items">
+                <div class="item">
+                    <p>Product Name: Example Product 1</p>
+                    <p>Price: $50</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+    <!-- 添加返回主页的按钮 -->
+    <a href="../../home.html" class="back-to-home">Back to Home</a>
+    <script src="script.js"></script>
+</body>
+</html>
+

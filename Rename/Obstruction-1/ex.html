@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Website</title>
+</head>
+<body>
+
+    <!-- Cookie Notice Container -->
+    <div id="cookie-notice" class="hidden">
+        <div class="cookie-content">
+            <p>This website uses cookies to ensure you get the best experience on our website.</p>
+            <div class="btn-container">
+                <button id="accept-all-cookies">Accept All Cookies</button>
+                <button id="refuse-cookies">Refuse Cookies</button>
+            </div>
+        </div>
+        <div id="refuse-step-1" class="hidden">
+            <p>Step 1: Choose the types of cookies to refuse:</p>
+            <label><input type="checkbox" id="analytics"> Analytics Cookies</label>
+            <label><input type="checkbox" id="preferences"> Marketing Cookies</label>
+            <button id="next-step-2">Next</button>
+        </div>
+        <div id="refuse-step-2" class="hidden">
+            <p>Step 2: Choose additional reasons:</p>
+            <label><input type="checkbox" id="reasons_1"> Reason_1</label>
+            <label><input type="checkbox" id="reasons_2"> Reason_2</label>
+            <!-- Add more options as needed -->
+            <button id="next-step-3">Next</button>
+        </div>
+        <div id="refuse-step-3" class="hidden">
+            <p>Step 3: Finalize your cookie preferences:</p>
+            <!-- Add more options as needed -->
+            <button id="accept-refused-cookies">Accept Refused Cookies</button>
+        </div>
+    </div>
+
+    <!-- 添加返回主页的按钮 -->
+    <a href="../../home.html" class="back-to-home">Back to Home</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
