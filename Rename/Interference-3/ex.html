@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Default Tipping Setting</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<h2>Welcome to our website</h2>
+<p>Welcome to our online shop, your one-stop destination for all your shopping needs! With a vast selection of products ranging from electronics and gadgets to fashion, home decor, and more, we strive to provide our customers with an unparalleled shopping experience.
+
+    Browse through our extensive collection of high-quality products sourced from top brands and trusted suppliers. Whether you're looking for the latest tech gadgets, trendy fashion accessories, or stylish home decor items, we have something for everyone.
+    
+    Enjoy convenient shopping with user-friendly navigation, secure payment options, and fast delivery to your doorstep. Plus, our dedicated customer support team is always ready to assist you with any inquiries or concerns.
+    
+    Shop now and discover the joy of effortless online shopping at our store!</p>
+
+<form id="tipForm">
+    <label>
+        <input type="checkbox" id="defaultTip" name="defaultTip" checked>
+        20% tip
+    </label>
+    <button type="submit">Begin scan</button>
+</form>
+
+<script>
+    document.getElementById('tipForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var defaultTip = document.getElementById('defaultTip').checked;
+        
+        if (defaultTip) {
+            alert('You have chosen to leave the default 20% tip. Thank you for your support!');
+        } else {
+            alert('You have opted out of the default 20% tip. Thank you!');
+        }
+        
+        // Redirect to Indiegogo website or perform other actions
+    });
+</script>
+
+</body>
+</html>
+

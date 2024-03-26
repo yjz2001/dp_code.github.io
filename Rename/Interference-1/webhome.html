@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #beginBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #beginBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Website</h1>
+        <p>Our website provides models to assist you in training. With fast speed and a wide variety of models, we aim to facilitate your training process.</p>
+        <p>Click the button below to begin:</p>
+        <button id="beginBtn" onclick="redirectToEx()">Begin</button>
+    </div>
+
+    <script>
+        function redirectToEx() {
+            window.location.href = "ex.html";
+        }
+    </script>
+</body>
+</html>
+
