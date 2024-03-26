@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Default Tipping Setting</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E6F7FF; /* 淡蓝色背景 */
+    border: 1px solid #1890FF; /* 边框颜色 */
+    border-radius: 5px;
+    padding: 10px; /* 增加内边距 */
+    display: none;
+    color: #FF0000; /* 红色字体 */
+    width: 200px; /* 指定框的宽度 */
+}
+
+.tooltip-text {
+    color: inherit; /* 继承父元素的字体颜色 */
+}
+
+.arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid transparent;
+    border-width: 6px;
+    border-top-color: #ccc;
+    display: none;
+}
+
+#submitBtn:hover + .tooltip-container .tooltip,
+.tooltip-container:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container:hover .arrow {
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<h2>Welcome to our website</h2>
+<p>Welcome to our online shop, your one-stop destination for all your shopping needs! With a vast selection of products ranging from electronics and gadgets to fashion, home decor, and more, we strive to provide our customers with an unparalleled shopping experience.
+
+    Browse through our extensive collection of high-quality products sourced from top brands and trusted suppliers. Whether you're looking for the latest tech gadgets, trendy fashion accessories, or stylish home decor items, we have something for everyone.
+    
+    Enjoy convenient shopping with user-friendly navigation, secure payment options, and fast delivery to your doorstep. Plus, our dedicated customer support team is always ready to assist you with any inquiries or concerns.
+    
+    Shop now and discover the joy of effortless online shopping at our store!</p>
+
+<form id="tipForm">
+    <label>
+        <input type="checkbox" id="defaultTip" name="defaultTip" checked>
+        20% tip
+    </label>
+    <button type="submit" id="submitBtn">Begin scan</button>
+    <div class="tooltip-container" id="step_edu_2">
+        <div class="tooltip">
+            <span class="tooltip-text">This step you will find if you click the begin scan, you will pay 20% tips for next shopping process. As the checkbox is default checked. So before click the button, you should cancel the check. </span>
+            <span class="arrow"></span>
+        </div>
+    </div>
+</form>
+
+<script>
+    document.getElementById('tipForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var defaultTip = document.getElementById('defaultTip').checked;
+        
+        if (defaultTip) {
+            alert('You have chosen to leave the default 20% tip. Thank you for your support!');
+        } else {
+            alert('You have opted out of the default 20% tip. Thank you!');
+        }
+        
+        // Redirect to Indiegogo website or perform other actions
+    });
+</script>
+
+</body>
+</html>
+

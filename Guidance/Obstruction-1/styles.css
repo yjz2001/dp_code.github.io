@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.back-to-home {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#popup_tips_edu {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#closePopup_tips_edu {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+#cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.btn-container {
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#refuse-step-1,
+#refuse-step-2,
+#refuse-step-3 {
+    margin-top: 20px;
+}
+
+
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E6F7FF; /* 淡蓝色背景 */
+    border: 1px solid #1890FF; /* 边框颜色 */
+    border-radius: 5px;
+    padding: 10px; /* 增加内边距 */
+    display: none;
+    color: #FF0000; /* 红色字体 */
+    width: 200px; /* 指定框的宽度 */
+}
+
+.tooltip-text {
+    color: inherit; /* 继承父元素的字体颜色 */
+}
+
+.arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid transparent;
+    border-width: 6px;
+    border-top-color: #ccc;
+    display: none;
+}
+
+#accept-all-cookies{
+    margin-top: 10px;
+}
+
+
+
+#accept-all-cookies:hover + .tooltip-container .tooltip,
+.tooltip-container:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container:hover .arrow {
+    display: block;
+}
+
+
+.tooltip-container-2 {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+}
+
+#next-step-2:hover + .tooltip-container-2 .tooltip,
+.tooltip-container-2:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container-2:hover .arrow {
+    display: block;
+}
+
+.tooltip-container-3 {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+}
+
+#accept-refused-cookies:hover + .tooltip-container-3 .tooltip,
+.tooltip-container-3:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container-3:hover .arrow {
+    display: block;
+}
+
+
+
+
