@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home 页面</title>
+    <link rel="stylesheet" href="dock/dock.css">
+
+    <style>
+        .icon-introduction img.intro_dock {
+            width: 50px; /* 设置图片宽度 */
+            height: 50px; /* 设置图片高度 */
+        }
+
+        .process_image{
+            width: 500px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- dock -->
+    <div class="dock">
+        <!-- 图标1 -->
+        <div class="dock-icon" onclick="showPage(1)" style="background-image: url(dock/icon-email.png)" id="icon-email">
+            <span class="badge" id="badge_1">0</span>
+        </div>
+        <!-- 图标2 -->
+        <div class="dock-icon" onclick="showPage(2)" style="background-image: url(dock/icon-notification.png)" id="icon-notification">
+            <span class="badge" id="badge_2">0</span>
+        </div>
+        <!-- 图标3 -->
+        <div class="dock-icon" onclick="showPage(3)" style="background-image: url(dock/icon-card.png)" id="icon-card">
+            <span class="badge" id="badge_3">0</span>
+        </div>
+
+        <!-- Report -->>
+        <div class="dock-icon" onclick="reportBtn()" style="background-image: url(dock/icon-report.png)"> 
+        </div>
+    </div>
+
+    <!-- 文本框 -->
+<div id="reportModal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <span id="close_report" class="close" onclick="closeModal()">&times;</span>
+      <h2>Reason for Report</h2>
+      <textarea id="reportReason" rows="4" cols="50"></textarea>
+      <button onclick="submitReport()">Submit</button>
+    </div>
+  </div>
+
+    <!-- 页面主体内容 -->
+    <div style="margin-left: 60px;">
+        <h1>Home Page</h1>
+        <!-- 图标介绍部分 -->
+<div class="icon-introduction">
+    <h2>Icon Introduction</h2>
+    <ul>
+        <li>
+            <strong>Icon 1:</strong> This is the emails information.
+            <img src="dock/icon-email.png" alt="Email Icon" class="intro_dock">
+        </li>
+        <li>
+            <strong>Icon 2:</strong> This is the notifications.
+            <img src="dock/icon-notification.png" alt="Notification Icon" class="intro_dock">
+        </li>
+        <li>
+            <strong>Icon 3:</strong> This is cards information.
+            <img src="dock/icon-card.png" alt="Card Icon" class="intro_dock">
+        </li>
+        <li>
+            <strong>Icon 4:</strong> This is report Button. If you have any comments about the patterns you can click this to submit.
+            <img src="dock/icon-report.png" alt="Report Icon" class="intro_dock">
+        </li>
+    </ul>
+</div>
+    </div>
+
+    <div style="margin-left: 60px;">
+        <h2>Introduction</h2>
+        <img src="process_image_first.png" alt="Process" class="process_image">
+        <ul>
+            <li><a href="../introduction/Nagging.html">Nagging</a></li>
+            <li><a href="../introduction/Obstruction.html">Obstruction</a></li>
+            <li><a href="../introduction/Sneaking.html">Sneaking</a></li>
+            <li><a href="../introduction/Interference.html">Interface Interference</a></li>
+            <li><a href="../introduction/Forced.html">Forced Action</a></li>
+            <!-- 添加更多的目录按钮 -->
+        </ul>
+    </div> 
+
+    <div style="margin-left: 60px;">
+        <h2>Consequence Education</h2>
+        <img src="process_image_second.png" alt="Process" class="process_image">
+        <ul>
+            <li><a href="Nagging-2/ex.html">Nagging</a></li>
+            <li><a href="Obstruction-1/ex.html">Obstruction</a></li>
+            <li><a href="Sneaking-1/ex.html">Sneaking</a></li>
+            <li><a href="Interference-3/ex.html">Interface Interference</a></li>
+            <li><a href="Forced-1/ex.html">Forced Action</a></li>
+            <!-- 添加更多的目录按钮 -->
+        </ul>
+    </div> 
+
+    <div style="margin-left: 60px;" >
+        <h2>Continue</h2>
+        <img src="process_image_third.png" alt="Process" class="process_image">
+        <p>When you have completed the first two parts, please click this <a href="">link</a> to enter the test</p>
+
+    </div>
+
+    <script src="dock/dock_code.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
