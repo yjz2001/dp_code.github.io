@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <style>
+        body{
+             /* 设置背景图像的路径 */
+    /*background-image: url(backgroud.png);*/
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(back.png);
+    /* 设置背景图像的位置，这里是居中 */
+    background-position: center;
+    /* 设置背景图像的大小，这里是cover，使其覆盖整个屏幕 */
+    background-size: cover;
+    /* 使背景图像固定不随页面滚动而移动 */
+    background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookies</h1>
+    <p>This is a paragraph describing the use of cookies on our website.</p>
+    <p>We use cookies to enhance your experience on our site.</p>
+    <p>By clicking "Accept", you consent to the use of cookies.</p>
+    <button onclick="acceptCookies()">Accept</button>
+    <button onclick="rejectCookies()">Reject</button>
+    <button id="continue-btn" onclick="continuebrowse()">Continue Browsing</button>
+    <a href="ex.html">Back</a>
+    <a href="privacy.html">Privacy Policy</a>
+
+    <script>
+        var privacyPolicyRejected = localStorage.getItem("privacyPolicyRejected") || false;
+        var cookiesRejected = localStorage.getItem("cookiesRejected") || false;
+
+        function acceptCookies() {
+            alert("Cookies accepted.");
+            // Code to handle acceptance of cookies
+        }
+
+        function rejectCookies() {
+            var confirmRefusal = confirm("Are you sure you want to refuse?");
+            if (confirmRefusal) {
+                alert("Cookies rejected.");
+                localStorage.setItem("privacyPolicyRejected","true");
+                validateReject()
+
+                // Code to handle user refusal
+            }
+        }
+
+        function validateReject() {
+            if (privacyPolicyRejected && cookiesRejected) {
+                // Set validate variable to 1 or perform necessary action
+                validate = 1;
+                localStorage.setItem("validate_socre",validate);
+            }
+        }
+
+        function continuebrowse(){
+            validate = localStorage.getItem("validate_score") || 0;
+            if(validate === 1){
+                alert("Succeed");
+            }
+        }
+    </script>
+</body>
+</html>
