@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <h1>Report Page</h1>
+    <form id="reportForm">
+        <label for="comment">Enter your comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // 获取表单元素
+        const form = document.getElementById('reportForm');
+
+        function backurl(){
+            // 获取 URL 中的参数
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            // 获取名为 "url" 的参数值
+            const previousURL = urlParams.get('url');
+        }
+
+        // 添加提交事件监听器
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止默认提交行为
+
+            // 获取评论内容
+            const comment = document.getElementById('comment').value;
+
+            // 将评论存储到本地存储中
+            saveComment(comment);
+
+            // 提交后清空评论框
+            document.getElementById('comment').value = '';
+
+            // 提示用户评论已提交
+            alert('Your comment has been submitted!');
+            var previousURL = document.referrer;
+            window.open(previousURL);
+
+        });
+
+        // 将评论保存到本地存储
+        function saveComment(comment) {
+            // 检查本地存储中是否已存在评论数据
+            let comments = localStorage.getItem('report-comments');
+            comments = comments ? JSON.parse(comments) : [];
+
+            // 将新评论添加到数组中
+            comments.push(comment);
+
+            // 将更新后的评论数组保存回本地存储
+            localStorage.setItem('report-comments', JSON.stringify(comments));
+
+        }
+    </script>
+</body>
+</html>
