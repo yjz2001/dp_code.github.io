@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../dock/dock.css">
+</head>
+<body>
+<div class="product-details">
+    <h2>Keyboard</h2>
+    <img src="product.png" alt="Product Image">
+    <p>
+        Looking for an exceptional keyboard? Look no further than the Keyboard. 
+        Whether you're a professional gamer, office worker, or just diving into the world of keyboards, 
+        this one has got you covered.</p>
+    <p>Price: $50</p>
+    <button id="addToCartBtn">Begin to checkout</button>
+
+    <div id="tooltip-confer">This is today's latest news, click here to see the details...</div>
+
+    <!-- dock -->
+    <div class="dock">
+        <!-- 图标1 -->
+        <div class="dock-icon" onclick="showPage(1)" style="background-image: url(../dock/icon-email.png)" id="icon-email">
+            <span class="badge" id="badge_1">0</span>
+        </div>
+        <!-- 图标2 -->
+        <div class="dock-icon" onclick="showPage(2)" style="background-image: url(../dock/icon-notification.png)" id="icon-notification">
+            <span class="badge" id="badge_2">0</span>
+        </div>
+        <!-- 图标3 -->
+        <div class="dock-icon" onclick="showPage(3)" style="background-image: url(../dock/icon-card.png)" id="icon-card">
+            <span class="badge" id="badge_3">0</span>
+        </div>
+
+        <!-- Report -->>
+        <div class="dock-icon" onclick="reportBtn()" style="background-image: url(../dock/icon-report.png)"> 
+        </div>
+    </div>
+
+    <!-- 文本框 -->
+<div id="reportModal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <span id="close_report" class="close" onclick="closeModal()">&times;</span>
+      <h2>Reason for Report</h2>
+      <textarea id="reportReason" rows="4" cols="50"></textarea>
+      <button onclick="submitReport()">Submit</button>
+    </div>
+  </div>
+
+</div>
+<script src="../dock/dock_code.js"></script>
+<script>
+    document.getElementById('addToCartBtn').addEventListener('click', function() {
+    // 在此处添加代码以跳转到下一个界面
+    window.location.href = 'cart.html';
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forced Action</title>
+    <style>
+        /* 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        .next {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Forced Action</h2>
+        <div class="description">
+            <p>Requiring the user to perform a certain action to access (or continue to access) certain functionality.</p>
+            <p><strong>Case Description:</strong> Users are required to subscribe to the newsletter to create an account</p>
+        </div>
+        <img src="forced.png" alt="Screenshot">
+    </div>
+
+    <!-- 下一步按钮 -->
+    <a onclick="backBtnhome(5)" class="next" id="backButton">Continue</a>
+    <script src="script.js">
+    </script>
+</body>
+</html>

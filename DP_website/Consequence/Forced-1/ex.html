@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../Backstage/dock/dock.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="subscribe" name="subscribe">
+                <label for="subscribe">Subscribe to News</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sign Up" id="signup-btn" disabled>
+            </div>
+        </form>
+    </div>
+
+    <div id="tooltip-confer">This is today's latest news, click here to see the details...</div>
+
+    <!-- dock -->
+    <div class="dock">
+        <!-- 图标1 -->
+        <div class="dock-icon" onclick="showPage(1)" style="background-image: url(../dock/icon-email.png)" id="icon-email">
+            <span class="badge" id="badge_1">0</span>
+        </div>
+        <!-- 图标2 -->
+        <div class="dock-icon" onclick="showPage(2)" style="background-image: url(../dock/icon-notification.png)" id="icon-notification">
+            <span class="badge" id="badge_2">0</span>
+        </div>
+        <!-- 图标3 -->
+        <div class="dock-icon" onclick="showPage(3)" style="background-image: url(../dock/icon-card.png)" id="icon-card">
+            <span class="badge" id="badge_3">0</span>
+        </div>
+
+        <!-- Report -->>
+        <div class="dock-icon" onclick="reportBtn()" style="background-image: url(../dock/icon-report.png)"> 
+        </div>
+    </div>
+
+    <!-- 文本框 -->
+<div id="reportModal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <span id="close_report" class="close" onclick="closeModal()">&times;</span>
+      <h2>Reason for Report</h2>
+      <textarea id="reportReason" rows="4" cols="50"></textarea>
+      <button onclick="submitReport()">Submit</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="../../Backstage/dock/dock_code.js"></script>
+
+
+</body>
+</html>
