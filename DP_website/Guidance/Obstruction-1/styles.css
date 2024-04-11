@@ -95,7 +95,7 @@ button {
 .tooltip-container {
     position: relative;
     display: inline-block;
-    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+    margin-left: 100px; /* 调整文字框和按钮之间的间距 */
 }
 
 .tooltip {
@@ -146,7 +146,7 @@ button {
 .tooltip-container-2 {
     position: relative;
     display: inline-block;
-    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+    margin-left: 100px; /* 调整文字框和按钮之间的间距 */
 }
 
 #next-step-2:hover + .tooltip-container-2 .tooltip,
@@ -161,7 +161,7 @@ button {
 .tooltip-container-3 {
     position: relative;
     display: inline-block;
-    margin-left: 10px; /* 调整文字框和按钮之间的间距 */
+    margin-left: 100px; /* 调整文字框和按钮之间的间距 */
 }
 
 #accept-refused-cookies:hover + .tooltip-container-3 .tooltip,
