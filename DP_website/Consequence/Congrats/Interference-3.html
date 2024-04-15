@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page</title>
+    <style>
+        /* 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        .next {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <img src="congratulaion_image.png" alt="Screenshot">
+    </div>
+
+    <div class="container">
+        This website used a "pre-selection" pattern, 
+        which made it easy for you to continue with default consent.
+        <div></div>
+        <a><strong>Solution-1: You can cancle the checkbox.</strong></a>
+        <div></div>
+        <a><strong>Solution-2: You can report it to website developers.</strong></a>
+    </div>
+
+    <!-- 下一步按钮 -->
+    <a onclick="continueBtnhome()" class="next" id="continueButton">Continue</a>
+    <script>
+
+    function continueBtnhome(){
+        window.open("../Consequence_home.html","_self");
+    };
+    </script>
+</body>
+</html>
