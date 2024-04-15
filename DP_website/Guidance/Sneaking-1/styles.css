@@ -1,0 +1,172 @@
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-icon {
+    position: relative; /* Make the parent container for absolute positioning */
+    cursor: pointer;
+    width: 10%; /* 将图片大小调整为原始大小的 10% */
+}
+
+.cart-interface {
+    margin-top: 20px;
+}
+
+.cart-items {
+    margin-top: 20px;
+}
+
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.checkout-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    position: absolute;
+    top: 70%; /* Place the button below the cart icon */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Center the button exactly */
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+
+.product-details {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#addToCartBtn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addToCartBtn:hover {
+    background-color: #0056b3;
+}
+
+
+.tooltip-container {
+    position: absolute;
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 100px; /* 调整文字框和按钮之间的间距 */
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E6F7FF; /* 淡蓝色背景 */
+    border: 1px solid #1890FF; /* 边框颜色 */
+    border-radius: 5px;
+    padding: 10px; /* 增加内边距 */
+    display: none;
+    color: #FF0000; /* 红色字体 */
+    width: 200px; /* 指定框的宽度 */
+}
+
+.tooltip-text {
+    color: inherit; /* 继承父元素的字体颜色 */
+}
+
+.arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid transparent;
+    border-width: 6px;
+    border-top-color: #ccc;
+    display: none;
+}
+
+.checkout-btn:hover + .tooltip-container .tooltip,
+.tooltip-container:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container:hover .arrow {
+    display: block;
+}
+
+.back-to-home {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.tooltip-container-2 {
+    position: relative;
+    display: inline-block;
+    top: 10px;
+    margin-left: 100px; /* 调整文字框和按钮之间的间距 */
+}
+
+#cartBtn:hover + .tooltip-container-2 .tooltip,
+.tooltip-container-2:hover .tooltip {
+    display: block;
+}
+
+.tooltip-container-2:hover .arrow {
+    display: block;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* 设置背景图像的路径 */
+    /*background-image: url(backgroud.png);*/
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(background.png);
+    /* 设置背景图像的位置，这里是居中 */
+    background-position: center;
+    /* 设置背景图像的大小，这里是cover，使其覆盖整个屏幕 */
+    background-size: cover;
+    /* 使背景图像固定不随页面滚动而移动 */
+    background-attachment: fixed;
+}
