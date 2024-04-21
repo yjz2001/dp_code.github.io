@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Settings</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+
+    
+      /* 设置背景图像的路径 */
+      /*background-image: url(backgroud.png);*/
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(background.png);
+      /* 设置背景图像的位置，这里是居中 */
+      background-position: center;
+      /* 设置背景图像的大小，这里是cover，使其覆盖整个屏幕 */
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* 使背景图像固定不随页面滚动而移动 */
+      background-attachment: fixed;
+    }
+  
+
+    .cookie-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .cookie-settings {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* Add margin at the bottom */
+  padding: 10px;
+}
+
+.cookie-btn-container {
+  text-align: center;
+  margin-top: 5px; /* Reduce top margin */
+}
+
+    .cookie-btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .confirm-btn {
+      position: absolute;
+      bottom: 0;
+      left: 100px;
+      background-color: #4caf50;
+      padding: 8px 15px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+      
+    }
+
+    .allow-all-btn {
+      background-color: #008CBA; /* Blue */
+    }
+  </style>
+</head>
+<body>
+
+<div class="cookie-container" id="cookieContainer">
+  <h2>Website Cookies Setting</h2>
+  <p>Our websites place cookies on your device to give you the best user experience. 
+    By using our websites, you agree to the placement of these cookies. To learn more, read our Privacy Policy.</p>
+  <div class="cookie-settings">
+  
+      <div><input type="checkbox" id="analyticsCheckbox" checked onchange="toggleConfirmButton()"> Analytics Cookies</div>
+      <div><input type="checkbox" id="personalizationCheckbox" checked onchange="toggleConfirmButton()"> Personalization Cookies</div>
+      <div><input type="checkbox" id="advertisingCheckbox" checked onchange="toggleConfirmButton()"> Advertising Cookies</div>
+  </div>
+  <div class="cookie-btn-container">
+    <button class="cookie-btn confirm-btn" onclick="confirmChoices()">Confirm my choices</button>
+    <button class="cookie-btn allow-all-btn" onclick="allowAll()">Allow all</button>
+  </div>
+</div>
+
+<script>
+  var originalCookieStates = {
+    analytics: true,
+    personalization: true,
+    advertising: true
+  };
+
+  function toggleConfirmButton() {
+    var currentCookieStates = {
+      analytics: document.getElementById('analyticsCheckbox').checked,
+      personalization: document.getElementById('personalizationCheckbox').checked,
+      advertising: document.getElementById('advertisingCheckbox').checked
+    };
+
+    var isStateChanged = Object.keys(currentCookieStates).some(function (key) {
+      return currentCookieStates[key] !== originalCookieStates[key];
+    });
+
+    var confirmButton = document.querySelector('.confirm-btn');
+    confirmButton.style.display = isStateChanged ? 'block' : 'none';
+  }
+
+  var checkbox_1 = document.getElementById('analyticsCheckbox');
+  var checkbox_2 = document.getElementById('personalizationCheckbox');
+  var checkbox_3 = document.getElementById('advertisingCheckbox');
+
+  function confirmChoices() {
+    // Implement code to save cookie settings
+    originalCookieStates = {
+      analytics: document.getElementById('analyticsCheckbox').checked,
+      personalization: document.getElementById('personalizationCheckbox').checked,
+      advertising: document.getElementById('advertisingCheckbox').checked
+    };
+
+    if(checkbox_1.checked || checkbox_2.checked || checkbox_3.checked){
+      alert("We will collect you data for specific purpose.")
+    }else{
+      alert('Succeed.');
+    }
+    // Optionally, you can hide the "Confirm my choices" button after saving
+    document.querySelector('.confirm-btn').style.display = 'none';
+    window.open("trans_reflection.html","_self");
+  }
+
+  function allowAll() {
+    // Implement code to check all checkboxes
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = true;
+    });
+    alert("We will collect you data for specific purpose.")
+    window.open("trans_reflection.html","_self");
+  }
+</script>
+
+</body>
+</html>
+
+

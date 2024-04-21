@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey</title>
+<link rel="stylesheet" href="../../setting/process_display.css">
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .btn-back {
+        background-color: #4CAF50;
+    }
+</style>
+</head>
+<body>
+
+    <div class="floating-bar">
+        <img src="../../setting/pro_reflection.png" alt="Your Image">
+    </div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <p>Welcome! How are you feeling about before example?</p>
+        <textarea id="feelings" rows="4" cols="50"></textarea><br>
+        <button class="btn" onclick="openModal('modal2')">Next</button>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <p>What observations do you have from the previous example?</p>
+        <textarea id="observations" rows="4" cols="50"></textarea><br>
+        <button class="btn" onclick="openModal('modal3')">Next</button>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <p>Have you encountered similar situations in real life?</p>
+        <input type="radio" name="encounter" value="yes"> Yes<br>
+        <input type="radio" name="encounter" value="no"> No<br>
+        <textarea id="similar-situations" rows="4" cols="50" 
+        placeholder="If you choose yes, please enter your similar situations here..."></textarea><br>
+        <button class="btn" onclick="submitAnswers()">Submit</button>
+    </div>
+</div>
+
+<script>
+    // Open modal
+    function openModal(id) {
+        var modal = document.getElementById(id);
+        modal.style.display = "block";
+    }
+
+    // Submit answers
+    function submitAnswers() {
+        var feelings = document.getElementById('feelings').value;
+        var observations = document.getElementById("observations").value;
+        var encounter = document.querySelector('input[name="encounter"]:checked').value;
+        var similarSituations = document.getElementById("similar-situations").value;
+
+        var reflectionNagging = {
+            feelings: feelings,
+            observations: observations,
+            encounter: encounter,
+            similarSituations: similarSituations
+        };
+
+        localStorage.setItem('reflection_sneaking', JSON.stringify(reflectionNagging));
+
+        // Redirect to next page
+        window.location.href = "../../Consequence/introduction/Sneaking.html";
+    }
+
+    window.onload = function() {
+        openModal('modal1');
+  };
+</script>
+
+</body>
+</html>
