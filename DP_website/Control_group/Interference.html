@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interface Interference</title>
+    <style>
+        /* 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        .next {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Interface Interference</h2>
+        <div class="description">
+            <p>Interface interference refers to any obstacles, distractions, or disruptions in a user interface that hinder the user's ability to accomplish their tasks efficiently and effectively.</p>
+            <p><strong>An example of interface interference:</strong> The site opens this pop-up, ironically on an article about Dark Patterns. The big blue button allows the user to connect their twitter account, but the option the follow the site’s twitter is already checked.</p>
+        </div>
+        <img src="interface.png" alt="Screenshot">
+    </div>
+
+    <!-- 下一步按钮 -->
+    <a onclick="backBtnhome()" class="next">Back</a>
+    <script src='script.js'></script>
+</body>
+</html>
