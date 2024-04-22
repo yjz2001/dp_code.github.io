@@ -22,7 +22,7 @@ accountBtn.addEventListener('click', function() {
 
     // Add text to the popup content
     const popupText = document.createElement('p');
-    popupText.textContent = 'What would you like to do?'; // 问你想做什么操作的英文
+    popupText.textContent = 'What would you like to do?';
     popupContent.appendChild(popupText);
 
     // Create "Cancel Subscription" button
