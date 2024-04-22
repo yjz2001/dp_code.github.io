@@ -34,7 +34,7 @@ accountBtn.addEventListener('click', function() {
         alert('Subscription cancelled successfully.');
         closePopup(); // Close the popup
         code_score_control(1);
-        window.open("../Obstruction/trans_test_2.html","_self");
+        window.open("../../Try/Obstruction/trans_test_2.html","_self");
     });
     popupContent.appendChild(cancelSubscriptionBtn);
 
