@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sneaking</title>
+    <link rel="stylesheet" href="../Cg_Test//process_display.css">
+    <style>
+        /* 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        .next {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-bar">
+        <img src="process_image_first.png" alt="Your Image">
+    </div>
+    <div class="container" style="margin-top: 100px;">
+        <h2>Sneaking</h2>
+        <div class="description">
+            <p>Sneaking involves intentionally withholding or obscuring information that is relevant to the user (e.g. additional costs or unwanted consequences), often in order to manipulate them into taking an action they would not otherwise choose.</p>
+            <p><strong>An example of sneaking:</strong> In 2015, UK sports retailer sportsdirect.com was found to be sneaking an unwanted magazine subscription into users' shopping baskets during the checkout process. The magazine cost an extra £1, and was added without users' explicit consent or knowledge. If users noticed it, they had to actively remove it from their basket if they did not wish to purchase it.</p>
+        </div>
+        <img src="sneaking.png" alt="Nagging Screenshot">
+    </div>
+
+    <!-- 下一步按钮 -->
+    <a onclick="backBtnhome(3)" class="next">Continue</a>
+    <script src='script.js'></script>
+</body>
+</html>
