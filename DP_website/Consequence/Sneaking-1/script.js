@@ -36,8 +36,10 @@ function addProtectionPlan() {
   });
 }
 
-
-
+function closebag(){
+  var bagitemC = document.getElementById('bagitem');
+  bagitemC.style.display = 'none';
+}
 
 // Simulate automatic addition of protection plan to cart when page loads
     addProtectionPlan();
