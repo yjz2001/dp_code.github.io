@@ -7,7 +7,7 @@
 
     // Display the result message
     //document.getElementById("consentResult").innerText = resultMessage;
-    alert(resultMessage);
+    //alert(resultMessage);
     if(resultMessage === "You do not agree company use your data for services."){
         code_score_control(1);
     }
