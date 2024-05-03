@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cookieCheckboxes.forEach(function(checkbox) {
             checkbox.checked = true;
         });
-        alert('Continue.');
+        //alert('Continue.');
         code_score_control(2);
         recordAction(1,"Accept");
         localStorage.setItem("interference_record", 1);
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const checkbox_3 = document.getElementById('marketingCookies');
     
         if (checkbox_2.checked || checkbox_3.checked || !checkbox_1.checked) {
-            alert('Continue.');
+            //alert('Continue.');
             code_score_control(2);
         } else if(checkbox_1.checked){
-            alert('Succeed.');
+            //alert('Succeed.');
             code_score_control(1);
         }
         recordAction(1,"submit");
