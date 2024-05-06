@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             //alert("Your personalized ads have been disabled.");
         }
-        //continue_next();
+        continue_next();
     });
 
     
