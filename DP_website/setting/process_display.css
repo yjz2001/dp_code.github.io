@@ -104,3 +104,7 @@
   #continue_btn_next:hover {
     background-color: #45a049;
   }
+
+  #continue_btn_next {
+    display: none; /* 默认隐藏按钮 */
+}
