@@ -199,10 +199,8 @@ function saveComment(comment) {
 }
 
 function continue_next(){
-    var contanin_continue = `
-    <button id="continue_btn_next" onclick="continueBtn()">Next</button>
-    `;
-    document.body.innerHTML += contanin_continue;
+    const continueContent = document.getElementById('continue_btn_next');
+    continueContent.style.display = 'block';
 }
 
 function continueBtn(){
