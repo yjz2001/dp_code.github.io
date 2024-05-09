@@ -108,7 +108,7 @@ function uploadJSONToS3() {
     s3.upload(params, function(err, data) {
         if (err) {
             console.error("Error uploading data: ", err);
-            alert("Error uploading JSON file to S3!");
+            alert("Error uploading JSON file to S3! Please resubmit file.");
         } else {
             console.log("Upload success: ", data.Location);
             alert("JSON file uploaded successfully to S3!");
