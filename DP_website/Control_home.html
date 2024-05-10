@@ -139,6 +139,12 @@ function checkLocalStorageRecord(recordName, elementId) {
         checkLocalStorageRecord("interference_record", "checkmark_interference");
         checkLocalStorageRecord("forced_record", "checkmark_forced");
 
+        nagging_record = localStorage.getItem("nagging_record");
+        sneaking_record = localStorage.getItem("sneaking_record");
+        forced_record = localStorage.getItem("forced_record");
+        obstruction_record = localStorage.getItem("obstruction_record");
+        interference_record = localStorage.getItem("interference_record");
+        
         if(nagging_record && obstruction_record && sneaking_record && interference_record && forced_record === "1"){
             document.getElementById("popup_submit").style.display = "block";
         }
