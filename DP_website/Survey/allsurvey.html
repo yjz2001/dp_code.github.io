@@ -421,6 +421,7 @@
     const submitBtn = document.getElementById("submitjson");
         submitBtn.addEventListener('click', function(){
             uploadJSONToS3();
+            event.preventDefault();
         });
 </script>
 <script>
