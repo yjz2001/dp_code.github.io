@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <style>
+        .question-section {
+            margin-bottom: 20px;
+        }
+        .statement {
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            margin-bottom: 20px;
+        }
+
+        #popup_submit {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+    </style>
+
+</head>
+<body>
+    <h2>Please indicate your agreement or disagreement with each statement: 
+        Strongly disagree(1), somewhat disagree, neutral, somewhat agree, strongly agree(5). 
+    </h2>
+    <form id="surveyForm" style="margin-left: 50px;">
+        <div class="question-section">
+            <h3>Enjoyment</h3>
+            <div class="statement">
+                <label>I had fun in the training.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question0" value="1"></label>
+                    <label>2 <input type="radio" name="question0" value="2"></label>
+                    <label>3 <input type="radio" name="question0" value="3"></label>
+                    <label>4 <input type="radio" name="question0" value="4"></label>
+                    <label>5 <input type="radio" name="question0" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I found the training enjoyable.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question1" value="1"></label>
+                    <label>2 <input type="radio" name="question1" value="2"></label>
+                    <label>3 <input type="radio" name="question1" value="3"></label>
+                    <label>4 <input type="radio" name="question1" value="4"></label>
+                    <label>5 <input type="radio" name="question1" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>The actual process of the training was pleasant.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question2" value="1"></label>
+                    <label>2 <input type="radio" name="question2" value="2"></label>
+                    <label>3 <input type="radio" name="question2" value="3"></label>
+                    <label>4 <input type="radio" name="question2" value="4"></label>
+                    <label>5 <input type="radio" name="question2" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>The training experience was pleasurable.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question3" value="1"></label>
+                    <label>2 <input type="radio" name="question3" value="2"></label>
+                    <label>3 <input type="radio" name="question3" value="3"></label>
+                    <label>4 <input type="radio" name="question3" value="4"></label>
+                    <label>5 <input type="radio" name="question3" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Curiosity</h3>
+            <div class="statement">
+                <label>This training experience piqued my interest in dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question4" value="1"></label>
+                    <label>2 <input type="radio" name="question4" value="2"></label>
+                    <label>3 <input type="radio" name="question4" value="3"></label>
+                    <label>4 <input type="radio" name="question4" value="4"></label>
+                    <label>5 <input type="radio" name="question4" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>This training experience made me curious to learn more about dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question5" value="1"></label>
+                    <label>2 <input type="radio" name="question5" value="2"></label>
+                    <label>3 <input type="radio" name="question5" value="3"></label>
+                    <label>4 <input type="radio" name="question5" value="4"></label>
+                    <label>5 <input type="radio" name="question5" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>This training experience motivated me to learn more about dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question6" value="1"></label>
+                    <label>2 <input type="radio" name="question6" value="2"></label>
+                    <label>3 <input type="radio" name="question6" value="3"></label>
+                    <label>4 <input type="radio" name="question6" value="4"></label>
+                    <label>5 <input type="radio" name="question6" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Confidence</h3>
+            <div class="statement">
+                <label>I am confident of my ability to make sense of the dark pattern modules in the training materials.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question7" value="1"></label>
+                    <label>2 <input type="radio" name="question7" value="2"></label>
+                    <label>3 <input type="radio" name="question7" value="3"></label>
+                    <label>4 <input type="radio" name="question7" value="4"></label>
+                    <label>5 <input type="radio" name="question7" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I am confident that I can identify different types of dark patterns in real life.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question8" value="1"></label>
+                    <label>2 <input type="radio" name="question8" value="2"></label>
+                    <label>3 <input type="radio" name="question8" value="3"></label>
+                    <label>4 <input type="radio" name="question8" value="4"></label>
+                    <label>5 <input type="radio" name="question8" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I believe that I can deal with dark patterns if I see them in the future.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question9" value="1"></label>
+                    <label>2 <input type="radio" name="question9" value="2"></label>
+                    <label>3 <input type="radio" name="question9" value="3"></label>
+                    <label>4 <input type="radio" name="question9" value="4"></label>
+                    <label>5 <input type="radio" name="question9" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Focused Attention</h3>
+            <div class="statement">
+                <label>I lost myself in this training.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question10" value="1"></label>
+                    <label>2 <input type="radio" name="question10" value="2"></label>
+                    <label>3 <input type="radio" name="question10" value="3"></label>
+                    <label>4 <input type="radio" name="question10" value="4"></label>
+                    <label>5 <input type="radio" name="question10" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>The time I spent taking the training just slipped away.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question11" value="1"></label>
+                    <label>2 <input type="radio" name="question11" value="2"></label>
+                    <label>3 <input type="radio" name="question11" value="3"></label>
+                    <label>4 <input type="radio" name="question11" value="4"></label>
+                    <label>5 <input type="radio" name="question11" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I was absorbed in this training.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question12" value="1"></label>
+                    <label>2 <input type="radio" name="question12" value="2"></label>
+                    <label>3 <input type="radio" name="question12" value="3"></label>
+                    <label>4 <input type="radio" name="question12" value="4"></label>
+                    <label>5 <input type="radio" name="question12" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Perceived Usefulness</h3>
+            <div class="statement">
+                <label>I felt frustrated while taking this training.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question13" value="1"></label>
+                    <label>2 <input type="radio" name="question13" value="2"></label>
+                    <label>3 <input type="radio" name="question13" value="3"></label>
+                    <label>4 <input type="radio" name="question13" value="4"></label>
+                    <label>5 <input type="radio" name="question13" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I found this training confusing to learn.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question14" value="1"></label>
+                    <label>2 <input type="radio" name="question14" value="2"></label>
+                    <label>3 <input type="radio" name="question14" value="3"></label>
+                    <label>4 <input type="radio" name="question14" value="4"></label>
+                    <label>5 <input type="radio" name="question14" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>Using this training was taxing.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question15" value="1"></label>
+                    <label>2 <input type="radio" name="question15" value="2"></label>
+                    <label>3 <input type="radio" name="question15" value="3"></label>
+                    <label>4 <input type="radio" name="question15" value="4"></label>
+                    <label>5 <input type="radio" name="question15" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Aesthetic Appeal</h3>
+            <div class="statement">
+                <label>This training was attractive.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question16" value="1"></label>
+                    <label>2 <input type="radio" name="question16" value="2"></label>
+                    <label>3 <input type="radio" name="question16" value="3"></label>
+                    <label>4 <input type="radio" name="question16" value="4"></label>
+                    <label>5 <input type="radio" name="question16" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>This training was aesthetically appealing.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question17" value="1"></label>
+                    <label>2 <input type="radio" name="question17" value="2"></label>
+                    <label>3 <input type="radio" name="question17" value="3"></label>
+                    <label>4 <input type="radio" name="question17" value="4"></label>
+                    <label>5 <input type="radio" name="question17" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>This training appealed to my senses.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question18" value="1"></label>
+                    <label>2 <input type="radio" name="question18" value="2"></label>
+                    <label>3 <input type="radio" name="question18" value="3"></label>
+                    <label>4 <input type="radio" name="question18" value="4"></label>
+                    <label>5 <input type="radio" name="question18" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Reward</h3>
+            <div class="statement">
+                <label>Taking this training was worthwhile.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question19" value="1"></label>
+                    <label>2 <input type="radio" name="question19" value="2"></label>
+                    <label>3 <input type="radio" name="question19" value="3"></label>
+                    <label>4 <input type="radio" name="question19" value="4"></label>
+                    <label>5 <input type="radio" name="question19" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>My experience was rewarding.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question20" value="1"></label>
+                    <label>2 <input type="radio" name="question20" value="2"></label>
+                    <label>3 <input type="radio" name="question20" value="3"></label>
+                    <label>4 <input type="radio" name="question20" value="4"></label>
+                    <label>5 <input type="radio" name="question20" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I felt interested in this training experience.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question21" value="1"></label>
+                    <label>2 <input type="radio" name="question21" value="2"></label>
+                    <label>3 <input type="radio" name="question21" value="3"></label>
+                    <label>4 <input type="radio" name="question21" value="4"></label>
+                    <label>5 <input type="radio" name="question21" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Awareness of DP</h3>
+            <div class="statement">
+                <label>I am now more aware of the dark patterns on the Internet.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question22" value="1"></label>
+                    <label>2 <input type="radio" name="question22" value="2"></label>
+                    <label>3 <input type="radio" name="question22" value="3"></label>
+                    <label>4 <input type="radio" name="question22" value="4"></label>
+                    <label>5 <input type="radio" name="question22" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I now understand the definitions, consequences and strategies regarding dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question23" value="1"></label>
+                    <label>2 <input type="radio" name="question23" value="2"></label>
+                    <label>3 <input type="radio" name="question23" value="3"></label>
+                    <label>4 <input type="radio" name="question23" value="4"></label>
+                    <label>5 <input type="radio" name="question23" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I keep myself updated about privacy issues and the solutions that companies and the government employ to ensure our privacy.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question24" value="1"></label>
+                    <label>2 <input type="radio" name="question24" value="2"></label>
+                    <label>3 <input type="radio" name="question24" value="3"></label>
+                    <label>4 <input type="radio" name="question24" value="4"></label>
+                    <label>5 <input type="radio" name="question24" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Risk of DP</h3>
+            <div class="statement">
+                <label>In general, it would be risky to fall into dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question25" value="1"></label>
+                    <label>2 <input type="radio" name="question25" value="2"></label>
+                    <label>3 <input type="radio" name="question25" value="3"></label>
+                    <label>4 <input type="radio" name="question25" value="4"></label>
+                    <label>5 <input type="radio" name="question25" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>There would be high potential for loss if I fall into dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question26" value="1"></label>
+                    <label>2 <input type="radio" name="question26" value="2"></label>
+                    <label>3 <input type="radio" name="question26" value="3"></label>
+                    <label>4 <input type="radio" name="question26" value="4"></label>
+                    <label>5 <input type="radio" name="question26" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>There would be too much uncertainty associated with falling into dark patterns.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question27" value="1"></label>
+                    <label>2 <input type="radio" name="question27" value="2"></label>
+                    <label>3 <input type="radio" name="question27" value="3"></label>
+                    <label>4 <input type="radio" name="question27" value="4"></label>
+                    <label>5 <input type="radio" name="question27" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>Dark patterns would create many unexpected problems.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question28" value="1"></label>
+                    <label>2 <input type="radio" name="question28" value="2"></label>
+                    <label>3 <input type="radio" name="question28" value="3"></label>
+                    <label>4 <input type="radio" name="question28" value="4"></label>
+                    <label>5 <input type="radio" name="question28" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Future Behavioral Intention</h3>
+            <div class="statement">
+                <label>I plan to take the training in the future.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question29" value="1"></label>
+                    <label>2 <input type="radio" name="question29" value="2"></label>
+                    <label>3 <input type="radio" name="question29" value="3"></label>
+                    <label>4 <input type="radio" name="question29" value="4"></label>
+                    <label>5 <input type="radio" name="question29" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I intend to continue to take the training in the future.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question30" value="1"></label>
+                    <label>2 <input type="radio" name="question30" value="2"></label>
+                    <label>3 <input type="radio" name="question30" value="3"></label>
+                    <label>4 <input type="radio" name="question30" value="4"></label>
+                    <label>5 <input type="radio" name="question30" value="5"></label>
+                </div>
+            </div>
+            <div class="statement">
+                <label>I expect the training to continue in the future.</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question31" value="1"></label>
+                    <label>2 <input type="radio" name="question31" value="2"></label>
+                    <label>3 <input type="radio" name="question31" value="3"></label>
+                    <label>4 <input type="radio" name="question31" value="4"></label>
+                    <label>5 <input type="radio" name="question31" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <h3>Recommendation</h3>
+            <div class="statement">
+                <label>How likely are you to recommend this training if your friends want to learn about dark patterns?</label>
+                <div class="options">
+                    <label>1 <input type="radio" name="question32" value="1"></label>
+                    <label>2 <input type="radio" name="question32" value="2"></label>
+                    <label>3 <input type="radio" name="question32" value="3"></label>
+                    <label>4 <input type="radio" name="question32" value="4"></label>
+                    <label>5 <input type="radio" name="question32" value="5"></label>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="validateAndSubmit()">Submit</button>
+
+        <div id="popup_submit">
+            <h2>You have completed all parts！</h2>
+            <p>Please submit your record. </p>
+            <button id="submitjson">Submit</button>
+        </div>
+    </form>
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1022.0.min.js"></script>
+<script src="../Backstage/jsonupload.js"></script>
+<script>
+    // 定义 AWS S3 存储桶的信息
+    const AWS_S3_REGION = 'ap-southeast-1';
+    const AWS_S3_ACCESS_KEY_ID = 'AKIA2UC3ADDLDNHGIP4Y';
+    const AWS_S3_SECRET_ACCESS_KEY = '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';
+    const AWS_S3_BUCKET_NAME = 'dpjsonstore';
+
+    const submitBtn = document.getElementById("submitjson");
+        submitBtn.addEventListener('click', function(){
+            uploadJSONToS3();
+        });
+</script>
+<script>
+    function validateAndSubmit() {
+        const ratings = document.querySelectorAll('input[type="radio"]:checked');
+        const totalStatements = document.querySelectorAll('.statement').length;
+        const popsubmit = document.getElementById('popup_submit');
+        if (ratings.length < totalStatements) {
+            alert("Please complete all questions.");
+            return;
+        }
+        const responses = {};
+        document.querySelectorAll('.statement').forEach((statement, index) => {
+            const question = statement.textContent.trim();
+            const rating = document.querySelector(`input[name="question${index}"]:checked`).value;
+            responses[question] = rating;
+        });
+        localStorage.setItem('surveycontent', JSON.stringify(responses));
+        alert("Thank you for completing the survey!");
+        popsubmit.style.display = "block";
+    }
+</script>
+</body>
+</html>
