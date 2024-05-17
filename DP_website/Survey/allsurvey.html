@@ -426,21 +426,21 @@
 </script>
 <script>
     function validateAndSubmit() {
-        const ratings = document.querySelectorAll('input[type="radio"]:checked');
-        const totalStatements = document.querySelectorAll('.statement').length;
         const popsubmit = document.getElementById('popup_submit');
-        if (ratings.length < totalStatements) {
-            alert("Please complete all questions.");
-            return;
-        }
+        const totalQuestions = 33; // Adjust based on the actual number of questions
         const responses = {};
-        document.querySelectorAll('.statement').forEach((statement, index) => {
-            const question = statement.textContent.trim();
-            const rating = document.querySelector(`input[name="question${index}"]:checked`).value;
-            responses[question] = rating;
-        });
+
+        for (let i = 0; i < totalQuestions; i++) {
+            const selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
+            if (!selectedOption) {
+                alert(`Please answer question ${i + 1}`);
+                return;
+            }
+            responses[`question${i + 1}`] = selectedOption.value;
+        }
+
         localStorage.setItem('surveycontent', JSON.stringify(responses));
-        alert("Thank you for completing the survey!");
+        alert('Survey submitted successfully!');
         popsubmit.style.display = "block";
     }
 </script>
