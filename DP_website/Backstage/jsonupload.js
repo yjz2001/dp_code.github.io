@@ -7,7 +7,9 @@ function Download_JSONFile() {
         "reflection_sneaking",
         "reflection_interference",
         "actions",
-        "stayTimes"
+        "stayTimes",
+    "essentialinfo",
+    "surveycontent"
     ];
     // 创建一个对象来存储键值对
     var data = {};
@@ -50,7 +52,9 @@ var keyNames = [
     "reflection_sneaking",
     "reflection_interference",
     "actions",
-    "stayTimes"
+    "stayTimes",
+    "essentialinfo",
+    "surveycontent"
 ];
 // 创建一个对象来存储键值对
 var data = {};
