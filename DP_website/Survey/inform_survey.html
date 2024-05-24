@@ -23,7 +23,14 @@
     <form id="surveyForm" style="margin-left: 50px;">
         <div>
             <label for="age">1. What is your age?</label><br>
-            <input type="text" id="age" name="age">
+            <input type="radio" id="18-20" name="age" value="1">
+            <label for="18-20">18-20</label><br>
+            <input type="radio" id="21-25" name="age" value="2">
+            <label for="21-25">21-25</label><br>
+            <input type="radio" id="26-30" name="age" value="1">
+            <label for="26-30">26-30</label><br>
+            <input type="radio" id="31 and above" name="age" value="2">
+            <label for="31 and above">31 and above</label><br>
         </div>
         <div>
             <p>2. What is your gender?</p>
@@ -118,7 +125,7 @@
     <script>
         function validateAndSave() {
             const popsubmit = document.getElementById('popup_submit');
-            const age = document.getElementById('age').value;
+            const age = document.querySelector('input[name="age"]:checked');
             const gender = document.querySelector('input[name="gender"]:checked');
             const race = document.querySelector('input[name="race"]:checked');
             const education = document.querySelector('input[name="education"]:checked');
@@ -133,7 +140,7 @@
             }
 
             const essentialInfo = {
-                age: age,
+                age: age.value,
                 gender: gender.value,
                 race: race.value,
                 education: education.value,
