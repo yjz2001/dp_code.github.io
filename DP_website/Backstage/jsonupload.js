@@ -83,8 +83,6 @@ var blob = new Blob([jsonData], { type: "application/json" });
 
 // 生成 JSON 文件并上传到 S3
 function uploadJSONToS3() {
-    //下载json
-    Download_JSONFile()
     // 调用 generate_JSONBlob() 函数生成 JSON Blob 对象和文件名
     var jsonBlobData = generate_JSONBlob();
     var blob = jsonBlobData.blob;
@@ -113,6 +111,7 @@ function uploadJSONToS3() {
         if (err) {
             console.error("Error uploading data: ", err);
             alert("Error uploading JSON file to S3! Please resubmit file.");
+            Download_JSONFile();
         } else {
             console.log("Upload success: ", data.Location);
             alert("JSON file uploaded successfully to S3!");
