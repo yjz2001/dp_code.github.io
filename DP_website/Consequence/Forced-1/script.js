@@ -58,8 +58,12 @@ function submitReport() {
     // 在这里可以添加提交报告的逻辑
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
-    successful_step();
 }      
+
+function submitReportAndAnotherFunction() {
+  successful_step();
+  submitReport();
+}
 
 function show_Page() {
     successful_step();
