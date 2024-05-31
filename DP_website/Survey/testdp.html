@@ -30,6 +30,20 @@
             padding: 5px;
             background-color: #e6e6e6;
         }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -66,7 +80,7 @@
     </div>
 </div>
 
-<button onclick="saveResults()">Save Results</button>
+<button class="btn" onclick="saveResults()">Save Results</button>
 
 <script>
 document.querySelectorAll('.draggable').forEach(item => {
@@ -137,7 +151,7 @@ function saveResults() {
     }
     
     localStorage.setItem('testdp', JSON.stringify(results));
-    alert('Results saved!');
+    window.open("inform_survey.html","_self");
 }
 </script>
 
