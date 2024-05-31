@@ -63,11 +63,11 @@
 <div id="modal1" class="modal">
     <div class="modal-content">
         <p>What observations do you have from the previous example?</p>
-        <input type="radio" name="observations" value="observations_1">I noticed that the personal ads are set to open by default.<br>
-        <input type="radio" name="observations" value="observations_2">I didn't notice anything special.<br>
-        <input type="radio" name="observations" value="other">Other, please specify below:<br>
+        <input type="checkbox" name="observations" value="observations_1">I noticed that the personal ads are set to open by default.<br>
+        <input type="checkbox" name="observations" value="observations_2">I didn't notice anything special.<br>
+        <input type="checkbox" name="observations" value="other">Other, please specify below:<br>
         <textarea id="observations_content" rows="4" cols="50" placeholder="Enter your observations here."></textarea><br>
-        <button class="btn" onclick="if(checkradioSelected('observations', 'observations_content')) openModal('modal2')">Next</button>
+        <button class="btn" onclick="if(checkCheckboxSelected('observations', 'observations_content')) openModal('modal2')">Next</button>
     </div>
 </div>
 
@@ -177,7 +177,33 @@ function checkradioSelected(radioName, textboxid) {
     alert('Please choose one choice.');
     return false; // 如果没有选项被选中，则返回 false
 }
+function checkCheckboxSelected(checkboxName, textAreaId) {
+    var checkboxes = document.getElementsByName(checkboxName);
+    var textArea = document.getElementById(textAreaId);
+    var isChecked = false;
+    var isOtherChecked = false;
 
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            isChecked = true;
+            if (checkboxes[i].value === 'other') {
+                isOtherChecked = true;
+            }
+        }
+    }
+
+    if (isOtherChecked && textArea.value.trim() === "") {
+        alert("Please specify your observation in the text area.");
+        return false;
+    }
+
+    if (isChecked || textArea.value.trim() !== "") {
+        return true;
+    } else {
+        alert("Please select at least one observation or specify in the text area.");
+        return false;
+    }
+}
 
 </script>
 
