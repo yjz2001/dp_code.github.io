@@ -41,11 +41,11 @@
       //remindUser_ok();
      //continue_next();
      i++;
-     showTooltip_notify("tooltip-confer", 250, -50);
-     showTooltip_notify("tooltip-confer-1", 250, -10);
-     showTooltip_notify("tooltip-confer-2",250, 30);
+     showTooltip_notify_contain("reportModal", "tooltip-confer", 900, 0);
+     showTooltip_notify_contain("reportModal", "tooltip-confer-1", 900, 30);
+     showTooltip_notify_contain("reportModal", "tooltip-confer-2", 900, 60);
      setInterval(function() {
-        showTooltip_notify("tooltip-confer", 250, -50);
+        showTooltip_notify_contain("reportModal", "tooltip-confer", 900, 0);
         if(i > 4){
             continue_next();
         }
