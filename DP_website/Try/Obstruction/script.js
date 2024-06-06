@@ -3,7 +3,7 @@
     personalization: true,
     advertising: true
   };
-
+ var Cookies_contain = document.getElementById('cookieContainer');
   function toggleConfirmButton() {
     var currentCookieStates = {
       analytics: document.getElementById('analyticsCheckbox').checked,
@@ -29,7 +29,7 @@
       personalization: document.getElementById('personalizationCheckbox').checked,
       advertising: document.getElementById('advertisingCheckbox').checked
     };
-
+    Cookies_contain.style.display = "none";
     if(checkbox_1.checked || checkbox_2.checked || checkbox_3.checked){
         showTooltip_notify("tooltip-confer", 50 ,-200);
     }else{
@@ -43,6 +43,7 @@
     checkboxes.forEach(function (checkbox) {
       checkbox.checked = true;
     });
+    Cookies_contain.style.display = "none";
     continue_next();
     showTooltip_notify("tooltip-confer", 50 ,-200);
   }
