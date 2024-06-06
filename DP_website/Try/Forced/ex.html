@@ -111,7 +111,7 @@
         <img src="../../setting/bell.gif" alt="Tooltip Image">
       </div>
       <div class="tooltip-confer-content">
-          <span class="close-button_noti" onclick="closenoti(); continue_next()">&times;</span>       
+          <span class="close-button_noti" onclick="closenoti(); showTooltip_notify_contain("signupcontain", "tooltip-confer-1", 40,-200);">&times;</span>       
           <p>
             <span style="display: block;"><strong>Exclusive Sale Alert!</strong></span>
             Enjoy Up to 50% Off Sitewide - Limited Time Only! Treat Yourself to Your Favorite Brands and Styles at Unbeatable Prices. Don't Miss Out - Shop Now and Upgrade Your Wardrobe Today! Plus, Free Shipping on Orders Over $50!
@@ -192,8 +192,10 @@
             event.preventDefault(); // 阻止默认提交行为
             //showTooltip_notify_contain("signupcontain","tooltip-confer", 100, -400);
             //showTooltip_notify_contain("signupcontain","tooltip-confer-1", -100, -200);
-            showTooltip_notify("tooltip-confer", 400,-200);
-            showTooltip_notify("tooltip-confer-1", 800,0);
+            // showTooltip_notify("tooltip-confer", 400,-200);
+            // showTooltip_notify("tooltip-confer-1", 800,0);
+            showTooltip_notify_contain("signupcontain", "tooltip-confer", 40,-200);
+            continue_next();
         });
     </script>
     <script src="../../Backstage/insert_code_edu.js"></script>
