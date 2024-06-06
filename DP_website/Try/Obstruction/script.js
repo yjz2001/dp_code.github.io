@@ -43,6 +43,7 @@
     checkboxes.forEach(function (checkbox) {
       checkbox.checked = true;
     });
+    continue_next();
     showTooltip_notify("tooltip-confer", 50 ,-200);
   }
 
