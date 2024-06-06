@@ -45,7 +45,7 @@
     });
     Cookies_contain.style.display = "none";
     continue_next();
-    showTooltip_notify("tooltip-confer", 50 ,-200);
+    showTooltip_notify("tooltip-confer", 50 ,50);
   }
 
   function showCookieSettings() {
