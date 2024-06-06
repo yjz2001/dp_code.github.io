@@ -31,7 +31,7 @@
     };
     Cookies_contain.style.display = "none";
     if(checkbox_1.checked || checkbox_2.checked || checkbox_3.checked){
-        showTooltip_notify("tooltip-confer", 50 ,-200);
+        showTooltip_notify("tooltip-confer", 50 ,50);
     }else{
       continue_next();
     }
