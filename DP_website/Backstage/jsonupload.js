@@ -9,7 +9,8 @@ function Download_JSONFile() {
         "actions",
         "stayTimes",
     "essentialinfo",
-    "surveycontent"
+    "surveycontent",
+        "testdp"
     ];
     // 创建一个对象来存储键值对
     var data = {};
@@ -54,7 +55,8 @@ var keyNames = [
     "actions",
     "stayTimes",
     "essentialinfo",
-    "surveycontent"
+    "surveycontent",
+        "testdp"
 ];
 // 创建一个对象来存储键值对
 var data = {};
