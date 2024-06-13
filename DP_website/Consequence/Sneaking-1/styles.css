@@ -12,6 +12,7 @@
     position: relative; /* Make the parent container for absolute positioning */
     cursor: pointer;
     width: 10%; /* 将图片大小调整为原始大小的 10% */
+    margin-left: 280px;
 }
 
 .cart-interface {
