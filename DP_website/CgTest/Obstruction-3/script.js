@@ -50,7 +50,7 @@ function displayAdvertising() {
         <p>Welcome to Advertising Settings.</p>
         <label>
         <input type="checkbox" id="limitadTracking" ${window.appSettings.limitadTrackingChecked ? "checked" : ""}>
-            open Limit Ad Tracking
+            Personal Ad Tracking
         </label>
         <button id="yesBtn" onclick="yesBtnfun()">Confirm</button>
     `;
