@@ -41,10 +41,10 @@
 
     
         <div style="margin-left: 60px;">
-            <p>Welcome to our dark pattern education website. Throughout this session, 
-                we will provide two educational modules, 
-                and each module will allow you to experience, learn, and experiment with one type of dark pattern.</p>
+            <p>Welcome to our dark pattern education website. Throughout this session, we will provide five educational modules, and each module will allow you to experience, 
+                learn, and experiment with one type of dark pattern. At the end of each module, we will collect your feedback through a survey and a short interview. </p>
             <img src="setting/pro_control.png" alt="Process Image" class="process_image">
+             <strong>Please click below to start: </strong>
 
             <ul>
                 <li><a href="Control/Nagging/Nagging.html">Nagging</a><span id="checkmark_nagging"></span></li>
@@ -56,12 +56,12 @@
             </ul>
         </div>
                
-    <div id="popup_submit">
-    <h2>You have completed all parts！</h2>
-    <p>Please submit your operation. </p>
-    <button id="submitjson">Submit</button>
+       <div id="popup_submit">
+    <h2>You have completed training！</h2>
+    <p>Please continue our Survey. </p>
+    <button id="submitjson">Next</button>
     </div>
-       
+    
 <script>
 // 定义一个函数来随机排列目录项
 function randomizeListItems() {
@@ -151,19 +151,10 @@ function checkLocalStorageRecord(recordName, elementId) {
 
         const submitBtn = document.getElementById("submitjson");
         submitBtn.addEventListener('click', function(){
-            uploadJSONToS3();
+            window.open("Survey/allsurvey.html", "_self");
         });
     };
 </script>
-    <!-- 引入 AWS SDK for JavaScript -->
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1022.0.min.js"></script>
 <script src="Backstage/jsonupload.js"></script>
-<script>
-    // 定义 AWS S3 存储桶的信息
-    const AWS_S3_REGION = 'ap-southeast-1';
-    const AWS_S3_ACCESS_KEY_ID = 'AKIA2UC3ADDLDNHGIP4Y';
-    const AWS_S3_SECRET_ACCESS_KEY = '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';
-    const AWS_S3_BUCKET_NAME = 'dpjsonstore';
-</script>
 </body>
 </html>
