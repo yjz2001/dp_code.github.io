@@ -30,7 +30,7 @@ function successful_step(){
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
           <p><span style="display: block;"><strong>Congratulations!</strong></span>
-            It seems that you already know that forced action is harmful to you, and the best choice is leaving the website or report it. Great job!</p>
+            It seems that you already know that <strong style="color:red;">Forced action</strong> is harmful to you, and the best choice is leaving the website or report it. Great job!</p>
           <button id="nextbutton" onclick="window.location.href='../../Try/Forced/trans_test_intro.html';">Next</a>
       </div>
     </div>`
@@ -42,7 +42,7 @@ function successful_step(){
     var fail_step_content = `
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
-          <p>Unfortunately, you've fallen for the forced action trap! As a result, you'll continue to receive more and more newsletters. Would you like to retry?</p>
+          <p>Unfortunately, you've fallen for the <strong style="color:red;">Forced action</strong> trap! As a result, you'll continue to receive more and more newsletters. Would you like to retry?</p>
           <a id="retrybutton" href="ex.html">Yes, I want.</a>
           <a id="nextbutton" href="../../Try/Forced/trans_test_intro.html">No, next.</a>
       </div>
