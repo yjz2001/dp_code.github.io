@@ -65,7 +65,7 @@ function successful_step(){
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
           <p><span style="display: block;"><strong>Congratulations!</strong></span>
-            It seems that you already know that sneaking is harmful to you, and the best choice is removing the extra items. Great job!</p>
+            It seems that you already know that <strong style="color:red;">Sneaking</strong> is harmful to you, and the best choice is removing the extra items. Great job!</p>
           <button id="nextbutton" onclick="window.location.href='../../Try/Sneaking/trans_test_intro.html';">Next</a>
       </div>
     </div>`
@@ -77,7 +77,7 @@ function successful_step(){
     var fail_step_content = `
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
-          <p>Unfortunately, you've fallen for the sneaking trap! As a result, you'll receive extra finacial loss. Would you like to retry?</p>
+          <p>Unfortunately, you've fallen for the <strong style="color:red;">Sneaking</strong> trap! As a result, you'll receive extra finacial loss. Would you like to retry?</p>
           <a id="retrybutton" href="ex.html">Yes, I want.</a>
           <a id="nextbutton" href="../../Try/Sneaking/trans_test_intro.html">No, next.</a>
       </div>
