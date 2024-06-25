@@ -18,7 +18,7 @@ p {
     margin-bottom: 20px;
 }
 
-button {
+.button-1 {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button-1:hover {
     background-color: #0056b3;
 }
 
