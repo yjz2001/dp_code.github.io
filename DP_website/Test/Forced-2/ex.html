@@ -15,11 +15,15 @@
 </div>
 
     <div class="container" style="margin-top: 150px;">
-        <h1>Windows Update Available</h1>
-        <p>A new update for Windows is available. Please choose an action:</p>
-        <p style="color: gray;">It will take 24 hours to update. Please do not turn off your device.</p>
-        <button id="update-restart">Update and Restart</button>
-        <button id="update-shutdown">Update and Shutdown</button>
+      <h1>Need your consent: </h1>
+      <p>In order to provide you with services, we need to collect and process your information. Please read our <u style="color: blue;">Privacy</u> and <u style="color: blue;">Cookie Statement</u> and <u style="color: blue;">Terms Conditions</u> before using our platform.</p>
+      <div class="checkbox-container">
+          <label>
+              <input type="checkbox" id="agree-checkbox"> Select all
+          </label>
+      </div>
+      <button class="button" id="continue-button-1" disabled>Agree and Continue</button>
+      <p class="note">If disagree, please close the website</p>
     </div>
 
     <!--右侧 dock -->
