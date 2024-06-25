@@ -34,7 +34,6 @@
     <button id="rejectButton" onclick="confirmRefuse(); hideButtons()">Refuse</button>
     <button id="continue-btn" onclick="continuebrowse()">Continue Browsing</button>
     <a href="ex.html">Back</a>
-    <a href="cookies.html">Cookies</a>
 </div>
 
     <!--右侧 dock -->
@@ -62,7 +61,6 @@
   <script src="script.js"></script>
     <script>
         var privacyPolicyRejected = false;
-        var cookiesRejected = localStorage.getItem("cookiesRejected") || false;
 
         function agree() {
             //alert("You have agreed to the privacy policy.");
@@ -90,7 +88,7 @@
         }
 
         function validateReject() {
-            if (privacyPolicyRejected && cookiesRejected) {
+            if (privacyPolicyRejected) {
                 // Set validate variable to 1 or perform necessary action
                 validate = 1;
                 localStorage.setItem("validate_socre",validate);
