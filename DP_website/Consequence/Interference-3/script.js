@@ -17,7 +17,7 @@ function successful_step(){
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
           <p><span style="display: block;"><strong>Congratulations!</strong></span>
-            It seems that you already know that <strong style="color:red;">Interface Interference</strong> is harmful to you, and the best choice is canceling the pre-selection box. Great job!</p>
+            It seems that you already know that <strong style="color:red;">Interface Interference</strong> is harmful to you, and the best choice is to cancel the pre-selected box. Great job!</p>
           <button id="nextbutton" onclick="window.location.href='../../Try/Interference/trans_test_intro.html';">Next</a>
       </div>
     </div>`
