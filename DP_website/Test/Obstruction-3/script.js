@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function handleMenuItemClick(menuItem) {
     switch (menuItem) {
-        case "General":
+        case "> General":
             displayGeneralSettings();
             break;
-        case "Privacy":
+        case "> Privacy":
             displayPrivacySettings();
             break;
         default:
