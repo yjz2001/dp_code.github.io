@@ -106,6 +106,7 @@ function successful_step(){
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
     successful_step();
+    console.log("Reason for report: +1", reason);
   }
 
 
