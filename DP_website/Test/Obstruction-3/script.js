@@ -95,8 +95,16 @@ function displayPrivacySettings() {
     content.innerHTML = `
         <h2>Privacy Settings</h2>
         <p>Welcome to Privacy Settings. Manage your privacy preferences here.</p>
+        <p>We would like to collect your personal data for targeted ads</p>
+        <button onclick="agreenext()">I agree</button>
     `;
     recordAction(1,"Privacy");
-    code_score_control(2);
+    //code_score_control(2);
 }
 
+function agreenext() {
+    recordAction(1,"Privacyagree");
+    code_score_control(2);
+    window.open("../../Training_home.html","_self");
+}
+    
