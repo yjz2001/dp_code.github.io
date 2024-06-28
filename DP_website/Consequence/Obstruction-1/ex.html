@@ -95,6 +95,35 @@
     <script src="script.js"></script>
     <script src="../dock/dock_code.js"></script>
     <script src="../../Backstage/insert_code_edu.js"></script>
+    <script>
+          function submitReport() {
+    console.log("submitReport called");
+  
+    // 调用 successful_step 函数
+    successful_step();
+    console.log("successful_step called");
+  
+    // 获取 reportReason 的值
+    var reason = document.getElementById("reportReason");
+    if (reason) {
+      //console.log("Reason for report: ", reason.value);
+      saveComment(reason.value);
+    } else {
+      console.error("reportReason element not found");
+    }
+  
+    // 提交后关闭模态框
+    closeModal();
+        // 调用 successful_step 函数
+        successful_step();
+        console.log("successful_step called");
+  }
+
+
+  function show_Page(){
+    successful_step();     
+}
+    </script>
 </body>
 </html>
 
