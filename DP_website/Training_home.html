@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Education for Dark Patterns</title>
+
+
     <style>
         .icon-introduction img.intro_dock {
             width: 50px; /* 设置图片宽度 */
@@ -17,91 +19,96 @@
         }
 
         #popup_submit {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
     </style>
 </head>
 <body>
     <!-- 页面主体内容 -->
     <div style="margin-left: 60px;">
         <h1>Education for Dark Patterns</h1>
+        
     </div>
 
-    <div style="margin-left: 60px;">
-        <p>Welcome to our dark pattern education website. Throughout this session, we will provide five educational modules, and each module will allow you to experience, 
-            learn, and experiment with one type of dark pattern. At the end of each module, we will collect your feedback through a survey and a short interview. </p>
-        <img src="setting/pro_whole.png" alt="Process Image" class="process_image">
-        <div></div>
-        <strong>Please click below <u style="color: red;">modules</u> to start </strong>
-        <ul id="modules-list">
-            <li><a href="Try/Nagging/trans_experience.html">Nagging</a><span id="checkmark_nagging"></span></li>
-            <li><a href="Try/Obstruction/trans_experience.html">Obstruction</a><span id="checkmark_obstruction"></span></li>
-            <li><a href="Try/Sneaking/trans_experience.html">Sneaking</a><span id="checkmark_sneaking"></span></li>
-            <li><a href="Try/Interference/trans_experience.html">Interface Interference</a><span id="checkmark_interference"></span></li>
-            <li><a href="Try/Forced/trans_experience.html">Forced Action</a><span id="checkmark_forced"></span></li>
-        </ul>
-    </div>
     
-    <div id="popup_submit">
-        <h2>You have completed training！</h2>
-        <p>Please continue our Survey. </p>
-        <button id="submitjson">Next</button>
+        <div style="margin-left: 60px;">
+            <p>Welcome to our dark pattern education website. Throughout this session, we will provide five educational modules, and each module will allow you to experience, learn, and experiment with one type of dark pattern. At the end of each module, we will collect your feedback through a survey.</p>
+            <img src="setting/pro_whole.png" alt="Process Image" class="process_image">
+            <div></div>
+            <strong>Please click below to start: </strong>
+            <ul>
+                <li><a href="Try/Nagging/trans_experience.html">Nagging</a><span id="checkmark_nagging"></span></li>
+                <li><a href="Try/Obstruction/trans_experience.html">Obstruction</a><span id="checkmark_obstruction"></span></li>
+                <li><a href="Try/Sneaking/trans_experience.html">Sneaking</a><span id="checkmark_sneaking"></span></li>
+                <li><a href="Try/Interference/trans_experience.html">Interface Interference</a><span id="checkmark_interference"></span></li>
+                <li><a href="Try/Forced/trans_experience.html">Forced Action</a><span id="checkmark_forced"></span></li>
+                <!-- 添加更多的目录按钮 -->
+            </ul>
+        </div>
+        
+       <div id="popup_submit">
+    <h2>You have completed training！</h2>
+    <p>Please continue our Survey. </p>
+    <button id="submitjson">Next</button>
     </div>
 
 <script>
-    // 定义一个函数来随机排列目录项并添加模块编号
-    function randomizeListItems() {
-        // 获取所有的目录项
-        var listItems = document.querySelectorAll("#modules-list li");
-        // 将目录项转换为数组以便进行操作
-        var itemsArray = Array.from(listItems);
-        // 使用 Fisher-Yates 算法对数组进行随机排序
-        function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array;
+// 定义一个函数来随机排列目录项
+function randomizeListItems() {
+    // 获取所有的目录项
+    var listItems = document.querySelectorAll("ul li");
+    // 将目录项转换为数组以便进行操作
+    var itemsArray = Array.from(listItems);
+    // 使用 Fisher-Yates 算法对数组进行随机排序
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
-        // 调用函数来随机排列目录项
-        var shuffledItems = shuffleArray(itemsArray);
-        // 清空原有的列表内容
-        var ulElement = document.getElementById("modules-list");
-        ulElement.innerHTML = "";
-        // 将随机排列的目录项重新添加到列表中并加上模块编号
-        shuffledItems.forEach(function(item, index) {
-            item.querySelector("a").textContent = "Module " + (index + 1) + ": " + item.querySelector("a").textContent;
-            ulElement.appendChild(item);
-        });
-        // 保存当前排序顺序到本地存储
-        localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
-            return item.querySelector("a").textContent;
-        })));
+        return array;
     }
+    // 调用函数来随机排列目录项
+    var shuffledItems = shuffleArray(itemsArray);
+    // 清空原有的列表内容
+    var ulElement = document.querySelector("ul");
+    ulElement.innerHTML = "";
+    // 将随机排列的目录项重新添加到列表中 
+    shuffledItems.forEach(function(item) {
+        ulElement.appendChild(item);
+    });
+    // 保存当前排序顺序到本地存储
+    localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
+        return item.textContent;
+    })));
+};
 
-    function checkLocalStorageRecord(recordName, elementId) {
-        var recordValue = localStorage.getItem(recordName);
-        if (recordValue === "1") {
-            var checkmark = document.createElement("span");
-            checkmark.textContent = "✓";
-            checkmark.classList.add("checkmark_home"); // 添加一个类名
-            document.getElementById(elementId).appendChild(checkmark);
-        }
+function checkLocalStorageRecord(recordName, elementId) {
+    var recordValue = localStorage.getItem(recordName);
+    if (recordValue === "1") {
+        var checkmark = document.createElement("span");
+        checkmark.textContent = "✓";
+        checkmark.classList.add("checkmark_home"); // 添加一个类名
+        document.getElementById(elementId).appendChild(checkmark);
     }
-
+};
+</script>  
+  
+<script>
     window.onload = function() {
         // 首次打开页面设定一个顺序
+        
         var lastOrder = localStorage.getItem("lastOrder");
         // 如果存在上次保存的顺序，则按照上次的顺序重新排列现有的列表项
         if (lastOrder) {
@@ -109,19 +116,19 @@
             var itemsArray = JSON.parse(lastOrder);
             var ulElement = document.querySelector("ul");
             // 遍历上次保存的顺序
-            itemsArray.forEach(function(textContent, index) {
+            itemsArray.forEach(function(textContent) {
                 // 遍历现有的列表项，查找与上次保存的顺序相符的列表项
                 Array.from(ulElement.children).forEach(function(listItem) {
                     // 查找列表项内部链接的文本内容
                     var linkText = listItem.querySelector("a").textContent;
-                    // 如果找到了匹配的列表项，则将其移到 ul 的末尾并加上模块编号
-                    if (linkText.includes(textContent.split(": ")[1])) {
-                        listItem.querySelector("a").textContent = "Module " + (index + 1) + ": " + linkText.split(": ")[1];
+                    // 如果找到了匹配的列表项，则将其移到 ul 的末尾
+                    if (linkText === textContent) {
                         ulElement.appendChild(listItem);
                     }
                 });
             });
-        } else {
+        }
+        else {
             // 如果不存在上次保存的顺序，则随机排列目录项，并保存到本地存储中
             randomizeListItems();
         }
