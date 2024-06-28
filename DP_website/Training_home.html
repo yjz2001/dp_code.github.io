@@ -2,8 +2,6 @@
 <html>
 <head>
     <title>Education for Dark Patterns</title>
-
-
     <style>
         .icon-introduction img.intro_dock {
             width: 50px; /* 设置图片宽度 */
@@ -19,151 +17,130 @@
         }
 
         #popup_submit {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-  
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- 页面主体内容 -->
     <div style="margin-left: 60px;">
         <h1>Education for Dark Patterns</h1>
-        
     </div>
 
-    
-        <div style="margin-left: 60px;">
-            <p>Welcome to our dark pattern education website. Throughout this session, we will provide five educational modules, and each module will allow you to experience, learn, and experiment with one type of dark pattern. At the end of each module, we will collect your feedback through a survey.</p>
-            <img src="setting/pro_whole.png" alt="Process Image" class="process_image">
-            <div></div>
-            <strong>Please click below to start: </strong>
-            <ul>
-                <li><a href="Try/Nagging/trans_experience.html">Nagging</a><span id="checkmark_nagging"></span></li>
-                <li><a href="Try/Obstruction/trans_experience.html">Obstruction</a><span id="checkmark_obstruction"></span></li>
-                <li><a href="Try/Sneaking/trans_experience.html">Sneaking</a><span id="checkmark_sneaking"></span></li>
-                <li><a href="Try/Interference/trans_experience.html">Interface Interference</a><span id="checkmark_interference"></span></li>
-                <li><a href="Try/Forced/trans_experience.html">Forced Action</a><span id="checkmark_forced"></span></li>
-                <!-- 添加更多的目录按钮 -->
-            </ul>
-        </div>
-        
-       <div id="popup_submit">
-    <h2>You have completed training！</h2>
-    <p>Please continue our Survey. </p>
-    <button id="submitjson">Next</button>
+    <div style="margin-left: 60px;">
+        <p>Welcome to our dark pattern education website. Throughout this session, we will provide five educational modules, and each module will allow you to experience, learn, and experiment with one type of dark pattern. At the end of each module, we will collect your feedback through a survey.</p>
+        <img src="setting/pro_whole.png" alt="Process Image" class="process_image">
+        <div></div>
+        <strong>Please click below to start: </strong>
+        <ul id="module-list">
+            <li><a href="Try/Nagging/trans_experience.html">Nagging</a><span id="checkmark_nagging"></span></li>
+            <li><a href="Try/Obstruction/trans_experience.html">Obstruction</a><span id="checkmark_obstruction"></span></li>
+            <li><a href="Try/Sneaking/trans_experience.html">Sneaking</a><span id="checkmark_sneaking"></span></li>
+            <li><a href="Try/Interference/trans_experience.html">Interface Interference</a><span id="checkmark_interference"></span></li>
+            <li><a href="Try/Forced/trans_experience.html">Forced Action</a><span id="checkmark_forced"></span></li>
+        </ul>
     </div>
 
-<script>
-// 定义一个函数来随机排列目录项
-function randomizeListItems() {
-    // 获取所有的目录项
-    var listItems = document.querySelectorAll("ul li");
-    // 将目录项转换为数组以便进行操作
-    var itemsArray = Array.from(listItems);
-    // 使用 Fisher-Yates 算法对数组进行随机排序
-    function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+    <div id="popup_submit">
+        <h2>You have completed training！</h2>
+        <p>Please continue our Survey. </p>
+        <button id="submitjson">Next</button>
+    </div>
+
+    <script>
+        function randomizeListItems() {
+            var listItems = document.querySelectorAll("#module-list li");
+            var itemsArray = Array.from(listItems);
+            function shuffleArray(array) {
+                for (var i = array.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                return array;
+            }
+            var shuffledItems = shuffleArray(itemsArray);
+            var ulElement = document.querySelector("#module-list");
+            ulElement.innerHTML = "";
+            shuffledItems.forEach(function(item, index) {
+                var moduleNumber = index + 1;
+                var originalText = item.querySelector("a").textContent;
+                item.querySelector("a").textContent = "Module " + moduleNumber + ": " + originalText;
+                ulElement.appendChild(item);
+            });
+            localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
+                return item.querySelector("a").textContent.split(": ")[1];
+            })));
         }
-        return array;
-    }
-    // 调用函数来随机排列目录项
-    var shuffledItems = shuffleArray(itemsArray);
-    // 清空原有的列表内容
-    var ulElement = document.querySelector("ul");
-    ulElement.innerHTML = "";
-    // 将随机排列的目录项重新添加到列表中 
-    shuffledItems.forEach(function(item) {
-        ulElement.appendChild(item);
-    });
-    // 保存当前排序顺序到本地存储
-    localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
-        return item.textContent;
-    })));
-};
 
-function checkLocalStorageRecord(recordName, elementId) {
-    var recordValue = localStorage.getItem(recordName);
-    if (recordValue === "1") {
-        var checkmark = document.createElement("span");
-        checkmark.textContent = "✓";
-        checkmark.classList.add("checkmark_home"); // 添加一个类名
-        document.getElementById(elementId).appendChild(checkmark);
-    }
-};
-</script>  
-  
-<script>
-    window.onload = function() {
-        // 首次打开页面设定一个顺序
-        
-        var lastOrder = localStorage.getItem("lastOrder");
-        // 如果存在上次保存的顺序，则按照上次的顺序重新排列现有的列表项
-        if (lastOrder) {
-            // 解析上次保存的顺序
-            var itemsArray = JSON.parse(lastOrder);
-            var ulElement = document.querySelector("ul");
-            // 遍历上次保存的顺序
-            itemsArray.forEach(function(textContent) {
-                // 遍历现有的列表项，查找与上次保存的顺序相符的列表项
-                Array.from(ulElement.children).forEach(function(listItem) {
-                    // 查找列表项内部链接的文本内容
-                    var linkText = listItem.querySelector("a").textContent;
-                    // 如果找到了匹配的列表项，则将其移到 ul 的末尾
-                    if (linkText === textContent) {
+        function checkLocalStorageRecord(recordName, elementId) {
+            var recordValue = localStorage.getItem(recordName);
+            if (recordValue === "1") {
+                var checkmark = document.createElement("span");
+                checkmark.textContent = "✓";
+                checkmark.classList.add("checkmark_home");
+                document.getElementById(elementId).appendChild(checkmark);
+            }
+        }
+
+        window.onload = function() {
+            var lastOrder = localStorage.getItem("lastOrder");
+            var ulElement = document.querySelector("#module-list");
+            var itemsMap = {};
+            Array.from(ulElement.children).forEach(function(listItem) {
+                var linkText = listItem.querySelector("a").textContent.split(": ")[1] || listItem.querySelector("a").textContent;
+                itemsMap[linkText] = listItem;
+            });
+
+            
+
+            if (lastOrder) {
+                ulElement.innerHTML = ""; // 清空列表项
+                var itemsArray = JSON.parse(lastOrder);
+                itemsArray.forEach(function(textContent, index) {
+                    if (itemsMap[textContent]) {
+                        var moduleNumber = index + 1;
+                        var listItem = itemsMap[textContent];
+                        listItem.querySelector("a").textContent = "Module " + moduleNumber + ": " + textContent;
                         ulElement.appendChild(listItem);
                     }
                 });
+            } else {
+                randomizeListItems();
+            }
+
+            checkLocalStorageRecord("nagging_record", "checkmark_nagging");
+            checkLocalStorageRecord("obstruction_record", "checkmark_obstruction");
+            checkLocalStorageRecord("sneaking_record", "checkmark_sneaking");
+            checkLocalStorageRecord("interference_record", "checkmark_interference");
+            checkLocalStorageRecord("forced_record", "checkmark_forced");
+
+            var nagging_record = localStorage.getItem("nagging_record");
+            var sneaking_record = localStorage.getItem("sneaking_record");
+            var forced_record = localStorage.getItem("forced_record");
+            var obstruction_record = localStorage.getItem("obstruction_record");
+            var interference_record = localStorage.getItem("interference_record");
+
+            if (nagging_record === "1" && obstruction_record === "1" && sneaking_record === "1" && interference_record === "1" && forced_record === "1") {
+                document.getElementById("popup_submit").style.display = "block";
+            }
+
+            const submitBtn = document.getElementById("submitjson");
+            submitBtn.addEventListener('click', function() {
+                window.open("Survey/allsurvey.html", "_self");
             });
-        }
-        else {
-            // 如果不存在上次保存的顺序，则随机排列目录项，并保存到本地存储中
-            randomizeListItems();
-        }
+        };
+    </script>
+    <script src="Backstage/jsonupload.js"></script>
 
-        checkLocalStorageRecord("nagging_record", "checkmark_nagging");
-        checkLocalStorageRecord("obstruction_record", "checkmark_obstruction");
-        checkLocalStorageRecord("sneaking_record", "checkmark_sneaking");
-        checkLocalStorageRecord("interference_record", "checkmark_interference");
-        checkLocalStorageRecord("forced_record", "checkmark_forced");
-
-        nagging_record = localStorage.getItem("nagging_record");
-        sneaking_record = localStorage.getItem("sneaking_record");
-        forced_record = localStorage.getItem("forced_record");
-        obstruction_record = localStorage.getItem("obstruction_record");
-        interference_record = localStorage.getItem("interference_record");
-        
-        if(nagging_record && obstruction_record && sneaking_record && interference_record && forced_record === "1"){
-            document.getElementById("popup_submit").style.display = "block";
-        }
-
-        const submitBtn = document.getElementById("submitjson");
-        submitBtn.addEventListener('click', function(){
-            window.open("Survey/allsurvey.html", "_self");
-        });
-    };
-</script>
- <!-- 引入 AWS SDK for JavaScript -->
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1022.0.min.js"></script>
-<script src="Backstage/jsonupload.js"></script>
-<script>
-    // 定义 AWS S3 存储桶的信息
-    const AWS_S3_REGION = 'ap-southeast-1';
-    const AWS_S3_ACCESS_KEY_ID = 'AKIA2UC3ADDLDNHGIP4Y';
-    const AWS_S3_SECRET_ACCESS_KEY = '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';
-    const AWS_S3_BUCKET_NAME = 'dpjsonstore';
-</script>
 </body>
 </html>
