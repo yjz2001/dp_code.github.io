@@ -98,18 +98,3 @@ function successful_step(){
     document.body.innerHTML += fail_step_content;
   }
 
- 
-  function submitReport() {
-    var reason = document.getElementById("reportReason").value;
-    saveComment(reason);
-    // 在这里可以添加提交报告的逻辑
-    console.log("Reason for report: ", reason);
-    closeModal(); // 提交后关闭模态框
-    successful_step();
-    console.log("Reason for report: +1", reason);
-  }
-
-
-  function show_Page(){
-    successful_step();     
-}
