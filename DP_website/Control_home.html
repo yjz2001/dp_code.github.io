@@ -59,105 +59,98 @@
         <button id="submitjson">Next</button>
     </div>
 
-<script>
-    // 定义一个函数来随机排列目录项并添加模块编号
-    function randomizeListItems() {
-        // 获取所有的目录项
-        var listItems = document.querySelectorAll("#modules-list li");
-        // 将目录项转换为数组以便进行操作
-        var itemsArray = Array.from(listItems);
-        // 使用 Fisher-Yates 算法对数组进行随机排序
-        function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+    <script>
+        // 定义一个函数来随机排列目录项并添加模块编号
+        function randomizeListItems() {
+            // 获取所有的目录项
+            var listItems = document.querySelectorAll("#modules-list li");
+            // 将目录项转换为数组以便进行操作
+            var itemsArray = Array.from(listItems);
+            // 使用 Fisher-Yates 算法对数组进行随机排序
+            function shuffleArray(array) {
+                for (var i = array.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                return array;
             }
-            return array;
+            // 调用函数来随机排列目录项
+            var shuffledItems = shuffleArray(itemsArray);
+            // 清空原有的列表内容
+            var ulElement = document.getElementById("modules-list");
+            ulElement.innerHTML = "";
+            // 将随机排列的目录项重新添加到列表中并加上模块编号
+            shuffledItems.forEach(function(item, index) {
+                var originalText = item.querySelector("a").textContent.split(": ")[1] || item.querySelector("a").textContent;
+                item.querySelector("a").textContent = "Module " + (index + 1) + ": " + originalText;
+                ulElement.appendChild(item);
+            });
+            // 保存当前排序顺序到本地存储
+            localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
+                return item.querySelector("a").textContent.split(": ")[1];
+            })));
         }
-        // 调用函数来随机排列目录项
-        var shuffledItems = shuffleArray(itemsArray);
-        // 清空原有的列表内容
-        var ulElement = document.getElementById("modules-list");
-        ulElement.innerHTML = "";
-        // 将随机排列的目录项重新添加到列表中并加上模块编号
-        shuffledItems.forEach(function(item, index) {
-            item.querySelector("a").textContent = "Module " + (index + 1) + ": " + item.querySelector("a").textContent.split(": ")[1];
-            ulElement.appendChild(item);
-        });
-        // 保存当前排序顺序到本地存储
-        localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
-            return item.querySelector("a").textContent;
-        })));
-    }
 
-    function checkLocalStorageRecord(recordName, elementId) {
-        var recordValue = localStorage.getItem(recordName);
-        if (recordValue === "1") {
-            var checkmark = document.createElement("span");
-            checkmark.textContent = "✓";
-            checkmark.classList.add("checkmark_home"); // 添加一个类名
-            document.getElementById(elementId).appendChild(checkmark);
+        function checkLocalStorageRecord(recordName, elementId) {
+            var recordValue = localStorage.getItem(recordName);
+            if (recordValue === "1") {
+                var checkmark = document.createElement("span");
+                checkmark.textContent = "✓";
+                checkmark.classList.add("checkmark_home"); // 添加一个类名
+                document.getElementById(elementId).appendChild(checkmark);
+            }
         }
-    }
 
-    window.onload = function() {
-        // 首次打开页面设定一个顺序
-        var lastOrder = localStorage.getItem("lastOrder");
-        // 如果存在上次保存的顺序，则按照上次的顺序重新排列现有的列表项
-        if (lastOrder) {
-            // 解析上次保存的顺序
-            var itemsArray = JSON.parse(lastOrder);
-            var ulElement = document.querySelector("ul");
-            // 遍历上次保存的顺序
-            itemsArray.forEach(function(textContent, index) {
-                // 遍历现有的列表项，查找与上次保存的顺序相符的列表项
-                Array.from(ulElement.children).forEach(function(listItem) {
-                    // 查找列表项内部链接的文本内容
-                    var linkText = listItem.querySelector("a").textContent;
-                    // 如果找到了匹配的列表项，则将其移到 ul 的末尾并加上模块编号
-                    if (linkText.includes(textContent.split(": ")[1])) {
-                        listItem.querySelector("a").textContent = "Module " + (index + 1) + ": " + linkText.split(": ")[1];
+        window.onload = function() {
+            var lastOrder = localStorage.getItem("lastOrder");
+            var ulElement = document.getElementById("modules-list");
+            var itemsMap = {};
+            Array.from(ulElement.children).forEach(function(listItem) {
+                var linkText = listItem.querySelector("a").textContent.split(": ")[1] || listItem.querySelector("a").textContent;
+                itemsMap[linkText] = listItem;
+            });
+
+            
+
+            if (lastOrder) {
+                ulElement.innerHTML = ""; // 清空列表项
+                var itemsArray = JSON.parse(lastOrder);
+                itemsArray.forEach(function(textContent, index) {
+                    if (itemsMap[textContent]) {
+                        var moduleNumber = index + 1;
+                        var listItem = itemsMap[textContent];
+                        listItem.querySelector("a").textContent = "Module " + moduleNumber + ": " + textContent;
                         ulElement.appendChild(listItem);
                     }
                 });
+            } else {
+                randomizeListItems();
+            }
+
+            checkLocalStorageRecord("nagging_record", "checkmark_nagging");
+            checkLocalStorageRecord("obstruction_record", "checkmark_obstruction");
+            checkLocalStorageRecord("sneaking_record", "checkmark_sneaking");
+            checkLocalStorageRecord("interference_record", "checkmark_interference");
+            checkLocalStorageRecord("forced_record", "checkmark_forced");
+
+            var nagging_record = localStorage.getItem("nagging_record");
+            var sneaking_record = localStorage.getItem("sneaking_record");
+            var forced_record = localStorage.getItem("forced_record");
+            var obstruction_record = localStorage.getItem("obstruction_record");
+            var interference_record = localStorage.getItem("interference_record");
+
+            if (nagging_record === "1" && obstruction_record === "1" && sneaking_record === "1" && interference_record === "1" && forced_record === "1") {
+                document.getElementById("popup_submit").style.display = "block";
+            }
+
+            const submitBtn = document.getElementById("submitjson");
+            submitBtn.addEventListener('click', function() {
+                window.open("Survey/allsurvey.html", "_self");
             });
-        } else {
-            // 如果不存在上次保存的顺序，则随机排列目录项，并保存到本地存储中
-            randomizeListItems();
-        }
-
-        checkLocalStorageRecord("nagging_record", "checkmark_nagging");
-        checkLocalStorageRecord("obstruction_record", "checkmark_obstruction");
-        checkLocalStorageRecord("sneaking_record", "checkmark_sneaking");
-        checkLocalStorageRecord("interference_record", "checkmark_interference");
-        checkLocalStorageRecord("forced_record", "checkmark_forced");
-
-        nagging_record = localStorage.getItem("nagging_record");
-        sneaking_record = localStorage.getItem("sneaking_record");
-        forced_record = localStorage.getItem("forced_record");
-        obstruction_record = localStorage.getItem("obstruction_record");
-        interference_record = localStorage.getItem("interference_record");
-        
-        if(nagging_record && obstruction_record && sneaking_record && interference_record && forced_record === "1"){
-            document.getElementById("popup_submit").style.display = "block";
-        }
-
-        const submitBtn = document.getElementById("submitjson");
-        submitBtn.addEventListener('click', function(){
-            window.open("Survey/allsurvey.html", "_self");
-        });
-    };
-</script>
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1022.0.min.js"></script>
-<script src="Backstage/jsonupload.js"></script>
-<script>
-    // 定义 AWS S3 存储桶的信息
-    const AWS_S3_REGION = 'ap-southeast-1';
-    const AWS_S3_ACCESS_KEY_ID = 'AKIA2UC3ADDLDNHGIP4Y';
-    const AWS_S3_SECRET_ACCESS_KEY = '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';
-    const AWS_S3_BUCKET_NAME = 'dpjsonstore';
-</script>
+        };
+    </script>
+    <script src="Backstage/jsonupload.js"></script>
 </body>
 </html>
