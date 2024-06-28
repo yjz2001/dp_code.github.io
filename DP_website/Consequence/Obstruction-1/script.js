@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //alert('Succeed.');
             successful_step();
         }else{
-            showTooltip_notify("tooltip-confer-1", 600, 0);
+            showTooltip_notify("tooltip-confer-1", 500, 0);
         }
     });
 
