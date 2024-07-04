@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const parsedPercent = parseFloat(enteredPercent); // Convert the input to a number
 
                 if (!isNaN(parsedPercent) && parsedPercent !== 0) {
-                    parsedPercent = parsedPercent+20;
-                    alert('Total gratuity: ' + parsedPercent + '%');
+                    let ab = Number(parsedPercent) + 20;
+                    alert('Total gratuity: ' + ab + '%');
                     code_score_control(2);
                 }
                 else if(!isNaN(parsedPercent) && parsedPercent === 0){
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Please enter a valid number.');
                 }
             } else {
-                customPercent = customPercent+20;
-                alert('Total gratuity: ' + customPercent + '%');
+                let ab = Number(customPercent)+20;
+                alert('Total gratuity: ' + ab + '%');
                 code_score_control(2);
             }
             recordAction(1,"confirm"+customPercent);
