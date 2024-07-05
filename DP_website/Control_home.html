@@ -63,14 +63,10 @@
         <button id="submitjson">Next</button>
     </div>
 
-    <script>
-        // 定义一个函数来随机排列目录项并添加模块编号
+   <script>
         function randomizeListItems() {
-            // 获取所有的目录项
-            var listItems = document.querySelectorAll("#modules-list li");
-            // 将目录项转换为数组以便进行操作
+            var listItems = document.querySelectorAll("#module-list li");
             var itemsArray = Array.from(listItems);
-            // 使用 Fisher-Yates 算法对数组进行随机排序
             function shuffleArray(array) {
                 for (var i = array.length - 1; i > 0; i--) {
                     var j = Math.floor(Math.random() * (i + 1));
@@ -80,18 +76,15 @@
                 }
                 return array;
             }
-            // 调用函数来随机排列目录项
             var shuffledItems = shuffleArray(itemsArray);
-            // 清空原有的列表内容
-            var ulElement = document.getElementById("modules-list");
+            var ulElement = document.querySelector("#module-list");
             ulElement.innerHTML = "";
-            // 将随机排列的目录项重新添加到列表中并加上模块编号
             shuffledItems.forEach(function(item, index) {
-                var originalText = item.querySelector("a").textContent.split(": ")[1] || item.querySelector("a").textContent;
-                item.querySelector("a").textContent = "Module " + (index + 1) + ": " + originalText;
+                var moduleNumber = index + 1;
+                var originalText = item.querySelector("a").textContent;
+                item.querySelector("a").textContent = "Module " + moduleNumber + ": " + originalText;
                 ulElement.appendChild(item);
             });
-            // 保存当前排序顺序到本地存储
             localStorage.setItem("lastOrder", JSON.stringify(shuffledItems.map(function(item) {
                 return item.querySelector("a").textContent.split(": ")[1];
             })));
@@ -102,14 +95,14 @@
             if (recordValue === "1") {
                 var checkmark = document.createElement("span");
                 checkmark.textContent = "✓";
-                checkmark.classList.add("checkmark_home"); // 添加一个类名
+                checkmark.classList.add("checkmark_home");
                 document.getElementById(elementId).appendChild(checkmark);
             }
         }
 
         window.onload = function() {
             var lastOrder = localStorage.getItem("lastOrder");
-            var ulElement = document.getElementById("modules-list");
+            var ulElement = document.querySelector("#module-list");
             var itemsMap = {};
             Array.from(ulElement.children).forEach(function(listItem) {
                 var linkText = listItem.querySelector("a").textContent.split(": ")[1] || listItem.querySelector("a").textContent;
