@@ -77,7 +77,7 @@ function successful_step(){
     var fail_step_content = `
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
-          <p>Unfortunately, you've fallen for the <strong style="color:red;">Sneaking</strong> trap! As a result, you'll receive extra finacial loss. Would you like to retry?</p>
+          <p>Unfortunately, you've fallen for the <strong style="color:red;">Sneaking</strong> trap! As a result, you end up paying more than you intended to. Would you like to retry?</p>
           <a id="retrybutton" href="ex.html">Yes, retry.</a>
           <a id="nextbutton" href="../../Try/Sneaking/trans_test_intro.html">No, next.</a>
       </div>
