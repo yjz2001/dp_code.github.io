@@ -5,8 +5,9 @@
     left: 0;
     width: 100px; /* 设置 dock 宽度 */
     height: 100%;
-    background-color: #FFA500; /* dock 背景颜色 */
-    z-index: 9999; /* 确保 dock 处于最顶层 */
+    background-color: #D3D3D3; /* dock 背景颜色 */
+    z-index: 9998; /* 确保 dock 处于最顶层 */
+    margin-top: 80px;
 }
 
 #dock_right{
@@ -25,7 +26,7 @@
     display: block;
     width: 100px;
     height: 70px;
-    background-color: #555; /* 图标背景颜色 */
+    background-color: white; /* 图标背景颜色 */
     margin-bottom: 10px; /* 图标之间的间距 */
     cursor: pointer;
     background-size: contain;
@@ -48,6 +49,42 @@
     padding: 2px 5px; /* 数字内边距 */
     border-radius: 50%; /* 数字的圆角 */
     font-size: 12px; /* 数字的字体大小 */
+}
+
+/* 隐藏工具提示文本 */
+.dock-icon .tooltip-text {
+  visibility: hidden;
+  width: 120px; /* 工具提示的宽度 */
+  background-color: #555; /* 背景颜色 */
+  color: #fff; /* 文字颜色 */
+  text-align: center; /* 文字居中 */
+  border-radius: 6px; /* 圆角 */
+  padding: 5px 0; /* 内边距 */
+  position: absolute; /* 绝对定位 */
+  z-index: 1; /* 保证在其他元素上方 */
+  top: 50%; /* 垂直居中 */
+  left: 125%; /* 位于图标右边 */
+  margin-top: -16px; /* 垂直居中调整 */
+  opacity: 0; /* 透明度 */
+  transition: opacity 0.3s; /* 渐变效果 */
+}
+
+/* 工具提示的箭头 */
+.dock-icon .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* 位于工具提示的左边 */
+  margin-top: -5px; /* 垂直居中 */
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #555 transparent transparent; /* 工具提示的箭头颜色 */
+}
+
+/* 悬停显示工具提示文本 */
+.dock-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 
