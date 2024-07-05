@@ -66,7 +66,7 @@ function successful_step(){
     <div id="container_intro" class="container_inform">
       <div class="container_inform_content">
           <p>Unfortunately, you've fallen for the <strong style="color: red;">Nagging</strong> trap! As a result, you'll continue to receive more and more notifications. Would you like to retry?</p>
-          <a id="retrybutton" href="ex.html">Yes, I want.</a>
+          <a id="retrybutton" href="ex.html">Yes, retry.</a>
           <a id="nextbutton" href="../../Try/Nagging/trans_test_intro.html">No, next.</a>
       </div>
     </div>`
