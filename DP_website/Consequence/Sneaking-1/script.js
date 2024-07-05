@@ -13,7 +13,7 @@ function addProtectionPlan() {
     protectionPlanItem.classList.add('item');
     protectionPlanItem.innerHTML = `
     <div class="protection-plan-content">
-        <p>TextBook</p>
+        <p>Water cup holder</p>
         <p>Price: $9.99</p>
         <button class="close-btn">Delete</button>
 </div>
