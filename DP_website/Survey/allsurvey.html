@@ -429,8 +429,8 @@
                 alert(`Please answer question ${i + 1}`);
                 return;
             }
-            responses[``] = selectedOption.value;
-            //responses[`question${i + 1}`] = selectedOption.value;
+            //responses[``] = selectedOption.value;
+            responses[`question${i + 1}`] = selectedOption.value;
         }
 
         localStorage.setItem('surveycontent', JSON.stringify(responses));
