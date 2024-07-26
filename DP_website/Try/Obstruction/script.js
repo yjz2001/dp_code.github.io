@@ -22,8 +22,42 @@
   var checkbox_1 = document.getElementById('analyticsCheckbox');
   var checkbox_2 = document.getElementById('personalizationCheckbox');
   var checkbox_3 = document.getElementById('advertisingCheckbox');
+    checkbox_1.addEventListener('change', function(){
+       if (checkBox.checked) {
+                console.log('checked');
+                recordAction(2,'checkBox1');
+                // 在这里可以执行复选框被选中时的操作
+            } else {
+                console.log('uncheck');
+                recordAction(3,'checkBox1');
+                // 在这里可以执行复选框被取消选中时的操作
+            } 
+    });
+    checkbox_2.addEventListener('change', function(){
+       if (checkBox.checked) {
+                console.log('checked');
+                recordAction(2,'checkBox2');
+                // 在这里可以执行复选框被选中时的操作
+            } else {
+                console.log('uncheck');
+                recordAction(3,'checkBox2');
+                // 在这里可以执行复选框被取消选中时的操作
+            } 
+    });
+checkbox_3.addEventListener('change', function(){
+       if (checkBox.checked) {
+                console.log('checked');
+                recordAction(2,'checkBox3');
+                // 在这里可以执行复选框被选中时的操作
+            } else {
+                console.log('uncheck');
+                recordAction(3,'checkBox3');
+                // 在这里可以执行复选框被取消选中时的操作
+            } 
+    });
 
   function confirmChoices() {
+    recordAction(1, 'confirm');
     originalCookieStates = {
       analytics: document.getElementById('analyticsCheckbox').checked,
       personalization: document.getElementById('personalizationCheckbox').checked,
@@ -46,6 +80,7 @@
     Cookies_contain.style.display = "none";
     continue_next();
     showTooltip_notify("tooltip-confer", 50 ,50);
+    recordAction(1, 'allowall');
   }
 
   function showCookieSettings() {
