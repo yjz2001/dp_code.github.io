@@ -198,6 +198,7 @@
             // showTooltip_notify("tooltip-confer-1", 800,0);
             showTooltip_notify_contain("signupcontain", "tooltip-confer", 40,-200);
             continue_next();
+            recordAction(1, 'submit');
         });
     </script>
     <script src="../../Backstage/insert_code_edu.js"></script>
@@ -210,11 +211,13 @@
       console.log("Reason for report: ", reason);
       closeModal(); // 提交后关闭模态框
         continue_next();
+        recordAction(1, 'report');
     }
   
     function show_Page(){
         alert("You may leave the website by clicking the 'Next' button!");
         continue_next();
+        recordAction(1, 'back');
     }
       </script>
 </body>
