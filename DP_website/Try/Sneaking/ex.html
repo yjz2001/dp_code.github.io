@@ -77,11 +77,11 @@ body {
     // 在这里可以添加提交报告的逻辑
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
-    
+    recordAction(1, 'report');
   }
 
   function show_Page(){
-    
+    recordAction(1, 'back');
   }
     </script>
 
