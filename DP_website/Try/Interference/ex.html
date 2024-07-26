@@ -64,12 +64,13 @@
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
     continue_next();
-
+    recordAction(1, 'report');
   }
 
   function show_Page(){
       alert("You may leave the website by clicking the 'Next' button!");
-    continue_next();
+      continue_next();
+      recordAction(1, 'back');
   }
     </script>
 </body>
