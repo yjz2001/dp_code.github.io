@@ -137,11 +137,13 @@
     // 在这里可以添加提交报告的逻辑
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
+    recordAction(1, 'report');
     continue_next();
   }
 
   function show_Page(){
     alert("You may leave the website by clicking the 'Next' button!");
+    recordAction(1, 'back');
     continue_next();
   }
 </script>
