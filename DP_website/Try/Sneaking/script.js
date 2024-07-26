@@ -6,6 +6,7 @@ const planItem = document.getElementById('plan-item');
 i=0;
 
 checkoutBtn.addEventListener('click', function() {
+    recordAction(1, 'checkout');
     if(i === 1){
         //showTooltip_notify("tooltip-confer",10, -400);
         continue_next();
@@ -18,6 +19,7 @@ checkoutBtn.addEventListener('click', function() {
 
 deleteplan.addEventListener('click', function() {
     planItem.style.display = 'none';
+    recordAction(1, 'delete_product');
     if(productItem.style.display === 'none'){
         updateSubtotal(0);
     }else{
@@ -28,6 +30,7 @@ deleteplan.addEventListener('click', function() {
 
 deleteproduct.addEventListener('click', function() {
     productItem.style.display = 'none';
+    recordAction(1, 'delete_extra');
     if(planItem.style.display === 'none'){
         updateSubtotal(0);
     }else{
