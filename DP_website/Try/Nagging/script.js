@@ -25,6 +25,7 @@
 
   function remindLater() {
       var reminderContainer = document.getElementById("reminderContainer");
+      recordAction(1, 'later');
       if (reminderContainer) {
           reminderContainer.remove();
       }
@@ -41,6 +42,7 @@
       //remindUser_ok();
      //continue_next();
      i++;
+      recordAction(1, 'updateNow');
      showTooltip_notify_contain("reportModal", "tooltip-confer", 900, 0);
      showTooltip_notify_contain("reportModal", "tooltip-confer-1", 900, 30);
      showTooltip_notify_contain("reportModal", "tooltip-confer-2", 900, 60);
@@ -78,6 +80,7 @@ function remindUser_ok(){
 function closeReminder() {
     var reminderContainer_ok = document.getElementById("reminderContainer_ok");
     reminderContainer_ok.remove(); 
+    recordAction(1, 'closereminder');
 }
 
   window.onload = function() {
