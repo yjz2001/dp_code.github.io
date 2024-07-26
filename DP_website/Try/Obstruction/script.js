@@ -85,4 +85,5 @@ function allowAll() {
 
 function showCookieSettings() {
   document.querySelector('.cookie-settings').style.display = 'flex';
+  recordAction(1,'reject');
 }
