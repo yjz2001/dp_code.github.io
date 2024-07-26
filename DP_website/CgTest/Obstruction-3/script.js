@@ -105,6 +105,7 @@ function displayPrivacySettings() {
 function agreenext() {
     recordAction(1,"Privacyagree");
     code_score_control(2);
+    localStorage.setItem("obstruction_record", 1);
     window.open("../../Control_home.html","_self");
 }
     
