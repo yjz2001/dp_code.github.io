@@ -6,7 +6,9 @@ document.getElementById('tipForm').addEventListener('submit', function(event) {
     if (defaultTip) {
         showTooltip_notify("tooltip-confer-1", 0, -400);
     } else {
+        recordAction(2,"checkbox");
       successful_step();
+        recordAction(1,"submit");
     }
     
     // Redirect to Indiegogo website or perform other actions
@@ -46,6 +48,7 @@ function submitReport() {
     console.log("Reason for report: ", reason);
     closeModal(); // 提交后关闭模态框
     successful_step();
+    recordAction(1,"report");
   }
 
 
