@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 else if(!isNaN(parsedPercent) && parsedPercent === 0){
                     //alert('Succeed.');
                     code_score_control(1);
+                    recordAction(1,"confirm: 0");
                 } 
                 else {
                     code_score_control(2);
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Total gratuity: ' + ab + '%');
                 code_score_control(2);
             }
-            recordAction(1,"confirm"+customPercent);
+            recordAction(1,"confirm: "+customPercent);
             window.open("../../Control/Sneaking/trans_test_2.html", "_self");
         });
     });
