@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", function() {
         if (subscribeCheckbox.checked) {
             showTooltip_notify("tooltip-confer-1", 0, -500);
             showTooltip_notify("tooltip-confer-2", 0, -450);
+            recordAction(1,"submit_succ");
 
         } else {
             addRedStar();
             console.log('222');
+            recordAction(1,"submit_false");
+            
         }
+        
     });
 
 });
