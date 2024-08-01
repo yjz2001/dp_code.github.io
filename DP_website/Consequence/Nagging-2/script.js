@@ -26,6 +26,7 @@ function remindUser() {
 
 function remindLater() {
     var reminderContainer = document.getElementById("reminderContainer");
+    recordAction(1,"later");
     if (reminderContainer) {
         reminderContainer.remove();
     }
@@ -41,6 +42,7 @@ function updateNow() {
     //updateBadge(2);
     showTooltip_notify("tooltip-confer", 200, 80);
     showTooltip_notify("tooltip-confer-1", 200,100);
+    recordAction(1,"updatenow");
     
 }
 
