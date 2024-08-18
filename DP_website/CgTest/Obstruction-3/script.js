@@ -88,6 +88,7 @@ function yesBtnfun(){
         localStorage.setItem("obstruction_record", 1);
         window.open("../../Control_home.html","_self");
     }
+    recordAction(1,"confirm");
 }
 
 function displayPrivacySettings() {
