@@ -28,6 +28,18 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+        #popup_submit_1 {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +70,12 @@
         <h2>You have completed training！</h2>
         <p>Please continue to our survey. </p>
         <button id="submitjson">Next</button>
+    </div>
+
+    <div id="popup_submit_1">
+        <h2>You have completed training！</h2>
+        <p>Thank you, please continue to our interview. </p>
+        <button id="submitjson_1">Next</button>
     </div>
 
     <script>
@@ -140,11 +158,11 @@
             //     document.getElementById("popup_submit").style.display = "block";
             // }
 
-            const submitBtn = document.getElementById("submitjson");
-            submitBtn.addEventListener('click', function() {
-                window.open("Survey/allsurvey.html", "_self");
-            });
-        };
+        //     const submitBtn = document.getElementById("submitjson");
+        //     submitBtn.addEventListener('click', function() {
+        //         window.open("Survey/allsurvey.html", "_self");
+        //     });
+        // };
 
     //只随机展示3个
     function randomizeListItems_new() {
@@ -169,8 +187,39 @@
             return item.querySelector("a").textContent.split(": ")[1];
         })));
     }
+
+    // 统计完成的模块数量
+    var completedModules = [
+        nagging_record,
+        obstruction_record,
+        sneaking_record,
+        interference_record,
+        forced_record
+    ].filter(record => record === "1").length;
+    var show_again = localStorage.getItem("show_again") || "0";
+    // 当至少 3 个模块完成时，显示提交弹窗
+    if (completedModules >= 3 && show_again === "0") {
+        document.getElementById("popup_submit_1").style.display = "block";
+        localStorage.setItem("show_again", "1");  // 避免重复显示
+    }
+        
     </script>
     <script src="Backstage/jsonupload.js"></script>
+    <script>
+        // 定义 AWS S3 存储桶的信息
+        const AWS_S3_REGION = 'ap-southeast-1';
+        const AWS_S3_ACCESS_KEY_ID = 'AKIA2UC3ADDLJ3JDXA5O';
+        const AWS_S3_SECRET_ACCESS_KEY = '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';
+        const AWS_S3_BUCKET_NAME = 'dpjsonstore';
+        var show_again = localStorage.getItem("show_again") || "0";
+        const submitBtn = document.getElementById("submitjson_1");
+        submitBtn.addEventListener('click', function(){
+            uploadJSONToS3();
+            event.preventDefault();
+            document.getElementById("popup_submit_1").style.display = "none";
+            localStorage.setItem("show_again", "1");  // 避免重复显示
+        });
+</script>
 
 </body>
 </html>
