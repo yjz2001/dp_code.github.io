@@ -37,10 +37,10 @@
 
     <div style="margin-left: 60px;">
         <div style="font-size: 24px;">Welcome to our dark pattern education website. Throughout this session, 
-            we will provide <span style="color: red;font-style: italic;">five educational modules</span>, 
+            we will provide <span style="color: red;font-style: italic;">below educational modules</span>, 
             and each module will allow you to <span style="color: red; font-style: italic;">experience, learn, and experiment</span> 
             with one type of dark pattern. 
-            After completing all the modules, we will collect your feedback through a survey and a short interview. 
+            After completing all the modules, we will collect your feedback through a short interview. 
         </div>
         <img src="setting/pro_whole.png" alt="Process Image" class="process_image">
         <div></div>
@@ -120,7 +120,7 @@
                     }
                 });
             } else {
-                randomizeListItems();
+                randomizeListItems_new();
             }
 
             checkLocalStorageRecord("nagging_record", "checkmark_nagging");
@@ -146,7 +146,8 @@
             });
         };
 
-    function randomizeListItems() {
+    //只随机展示3个
+    function randomizeListItems_new() {
         var listItems = document.querySelectorAll("#module-list li");
         var itemsArray = Array.from(listItems);
     
