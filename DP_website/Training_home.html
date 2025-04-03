@@ -135,15 +135,39 @@
             var obstruction_record = localStorage.getItem("obstruction_record");
             var interference_record = localStorage.getItem("interference_record");
 
-            if (nagging_record === "1" && obstruction_record === "1" && sneaking_record === "1" && interference_record === "1" && forced_record === "1") {
-                document.getElementById("popup_submit").style.display = "block";
-            }
+            // display survey and knowledge quiz
+            // if (nagging_record === "1" && obstruction_record === "1" && sneaking_record === "1" && interference_record === "1" && forced_record === "1") {
+            //     document.getElementById("popup_submit").style.display = "block";
+            // }
 
             const submitBtn = document.getElementById("submitjson");
             submitBtn.addEventListener('click', function() {
                 window.open("Survey/allsurvey.html", "_self");
             });
         };
+
+    function randomizeListItems() {
+        var listItems = document.querySelectorAll("#module-list li");
+        var itemsArray = Array.from(listItems);
+    
+        // 随机选择 3 个模块
+        var selectedItems = itemsArray.sort(() => Math.random() - 0.5).slice(0, 3);
+
+        var ulElement = document.querySelector("#module-list");
+        ulElement.innerHTML = ""; // 清空列表
+
+        // 仅添加选中的 3 个模块
+        selectedItems.forEach(function(item, index) {
+            var moduleNumber = index + 1;
+            var originalText = item.querySelector("a").textContent;
+            item.querySelector("a").textContent = "Module " + moduleNumber + ": " + originalText;
+            ulElement.appendChild(item);
+        });
+
+        localStorage.setItem("lastOrder", JSON.stringify(selectedItems.map(function(item) {
+            return item.querySelector("a").textContent.split(": ")[1];
+        })));
+    }
     </script>
     <script src="Backstage/jsonupload.js"></script>
 
