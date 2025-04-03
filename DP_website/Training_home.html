@@ -158,6 +158,22 @@
             //     document.getElementById("popup_submit").style.display = "block";
             // }
 
+            // 统计完成的模块数量
+            var completedModules = [
+                nagging_record,
+                obstruction_record,
+                sneaking_record,
+                interference_record,
+                forced_record
+            ].filter(record => record === "1").length;
+            var show_again = localStorage.getItem("show_again") || "0";
+            // 当至少 3 个模块完成时，显示提交弹窗
+            if (completedModules >= 3 && show_again === "0") {
+                document.getElementById("popup_submit_1").style.display = "block";
+                localStorage.setItem("show_again", "1");  // 避免重复显示
+            }
+            
+
         //     const submitBtn = document.getElementById("submitjson");
         //     submitBtn.addEventListener('click', function() {
         //         window.open("Survey/allsurvey.html", "_self");
@@ -188,20 +204,7 @@
         })));
     }
 
-    // 统计完成的模块数量
-    var completedModules = [
-        nagging_record,
-        obstruction_record,
-        sneaking_record,
-        interference_record,
-        forced_record
-    ].filter(record => record === "1").length;
-    var show_again = localStorage.getItem("show_again") || "0";
-    // 当至少 3 个模块完成时，显示提交弹窗
-    if (completedModules >= 3 && show_again === "0") {
-        document.getElementById("popup_submit_1").style.display = "block";
-        localStorage.setItem("show_again", "1");  // 避免重复显示
-    }
+    
         
     </script>
     <script src="Backstage/jsonupload.js"></script>
