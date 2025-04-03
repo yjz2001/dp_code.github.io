@@ -147,11 +147,11 @@
             checkLocalStorageRecord("interference_record", "checkmark_interference");
             checkLocalStorageRecord("forced_record", "checkmark_forced");
 
-            var nagging_record = localStorage.getItem("nagging_record");
-            var sneaking_record = localStorage.getItem("sneaking_record");
-            var forced_record = localStorage.getItem("forced_record");
-            var obstruction_record = localStorage.getItem("obstruction_record");
-            var interference_record = localStorage.getItem("interference_record");
+            var nagging_record = localStorage.getItem("nagging_record") || "0";
+            var sneaking_record = localStorage.getItem("sneaking_record") || "0";
+            var forced_record = localStorage.getItem("forced_record") || "0";
+            var obstruction_record = localStorage.getItem("obstruction_record") || "0";
+            var interference_record = localStorage.getItem("interference_record") || "0";
 
             // display survey and knowledge quiz
             // if (nagging_record === "1" && obstruction_record === "1" && sneaking_record === "1" && interference_record === "1" && forced_record === "1") {
